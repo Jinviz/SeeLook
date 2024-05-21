@@ -14,8 +14,9 @@ export default function Signup() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const auth = getAuth(app);
+      const auth = getAuth(app); //firebase 인증 객체 가져오기
       await createUserWithEmailAndPassword(auth, email, password);
+      //이메일과 비밀번호를 이용하여 새 사용자 생성
 
       toast.success("회원가입에 성공했습니다.");
       navigate("/");
@@ -34,7 +35,7 @@ export default function Signup() {
       setEmail(value);
       const validRegex =
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
+        //이메일 정규표현식
       if (!value?.match(validRegex)) {
         setError("이메일 형식이 올바르지 않습니다.");
       } else {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { app } from "firebaseApp";
+import { app } from "../firebaseApp";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function Login() {
@@ -103,3 +103,5 @@ export default function Login() {
     </form>
   );
 }
+
+//91번째 link to는 페이지 구조에 따라서 경로 수정 예정

@@ -1,5 +1,6 @@
 import { getStorage, ref } from "firebase/storage";
 import { useState } from "react";
+import { FiImage } from "react-icons/fi";
 
 export default function ImageUpload() {
   const [image, setImage] = useState("");
@@ -24,9 +25,13 @@ export default function ImageUpload() {
 
   return (
     <div className="image-area">
+      <label htmlFor="file-input" className="image-area__file">
+        <FiImage size="30" className="post-form__file-icon" />
+      </label>
       <input
         type="file"
         name="file-input"
+        id="file-input"
         accept="image/*"
         onChange={FileUpLoad}
       />

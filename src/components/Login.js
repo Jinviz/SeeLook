@@ -37,7 +37,8 @@ export default function Login() {
       const validRegex =
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-      if (!value?.match(validRegex)) { //정규 표현식 패턴과 맞지 않으면
+      if (!value?.match(validRegex)) {
+        //정규 표현식 패턴과 맞지 않으면
         // value?. 는 null값으로 인해 발생될 수 있는 오류를 방지하기 위함(옵셔널 체이닝)
         setError("이메일 형식이 올바르지 않습니다.");
       } else {

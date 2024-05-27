@@ -2,13 +2,17 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Layout from "./components/Layout";
 import LoginPage from "./components/Login";
+import ImageUploadPage from "./pages/imageupload";
+import MainPage from "./pages/main";
 
 function App() {
   return (
     <Layout>
-        <Routes>
-            <Route path="/" element={<LoginPage />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/ImageUpload" element={<ImageUploadPage />} />
+        <Route path="/Main" element={<MainPage />} />
+      </Routes>
     </Layout>
   );
 }

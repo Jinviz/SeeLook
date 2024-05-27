@@ -35,7 +35,7 @@ export default function Signup() {
       setEmail(value);
       const validRegex =
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        //이메일 정규표현식
+      //이메일 정규표현식
       if (!value?.match(validRegex)) {
         setError("이메일 형식이 올바르지 않습니다.");
       } else {

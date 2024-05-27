@@ -1,49 +1,43 @@
 import React, { useState, useRef } from "react";
 
 export default function Category() {
-  const [selectedItem, setSelectedItem] = useState("카테고리 선택");
+  const [category, setCagtegory] = useState("카테고리 선택");
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  // const dropdownRef = useRef(null);
+
+  const CATEGORIES = ["캐주얼", "미니멀", "스트릿"];
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
   const handleItemSelect = (item) => {
-    setSelectedItem(item.name);
+    setCagtegory(item.name);
     setIsOpen(false);
   };
 
-  const handleClose = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setIsOpen(false);
-    }
-  };
-
-  const items = [
-    { id: 1, name: "캐주얼" },
-    { id: 2, name: "미니멀" },
-    { id: 3, name: "스트릿" },
-  ];
+  // const handleClose = (event) => {
+  //   if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  //     setIsOpen(false);
+  //   }
+  // };
 
   return (
-    <div>
-      <button onClick={handleClick}>{selectedItem}</button>
-      {isOpen && (
-        <div
-          ref={dropdownRef}
-          className="dropdown-content"
-          onClick={handleClose}
-        >
-          <ul>
-            {items.map((item) => (
-              <li key={item.id} onClick={() => handleItemSelect(item)}>
-                {item.name}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+    <div className="category">
+      <label htmlFor="category"></label>
+      <select
+        name="category"
+        id="category"
+        onChange={handleItemSelect}
+        defaultValue={category}
+      >
+        <option value="">카테고리를 선택해주세요</option>
+        {CATEGORIES?.map((category) => (
+          <option value={category} key={category}>
+            {category}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }

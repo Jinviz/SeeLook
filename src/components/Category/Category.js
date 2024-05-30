@@ -1,5 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "./Category.css";
+import ImageUpload from "../ImageUpload/Imageupload";
 
 export default function Category() {
   const [category, setCategory] = useState("");
@@ -27,6 +28,7 @@ export default function Category() {
           </option>
         ))}
       </select>
+      <ImageUpload value="category" />
     </div>
   );
 }

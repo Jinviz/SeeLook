@@ -3,6 +3,7 @@
 .image-area {
   display: flex;
   flex-direction: column;
+  text-align: center;
   align-items: center;
   justify-content: center;
   padding-top: 20px;
@@ -35,4 +36,12 @@
   padding: 25px;
   width: 25%;
   height: 25%;
+}
+
+.image-submit-btn {
+  margin-top: 10px;
+}
+
+.image-clear-btn {
+  margin-top: 10px;
 }

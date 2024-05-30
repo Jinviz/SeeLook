@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FiImage } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
 import "./ImageUpload.css";
+import Category from "../Category/Category";
 
 export default function ImageUpload() {
   const [image, setImage] = useState(""); // 이미지를 저장하기 위한 state
@@ -34,6 +35,7 @@ export default function ImageUpload() {
     e.preventDefault();
     setIsSubmit(true);
     const storage = getStorage();
+    // `Casual/${uuidv4()}`
     const fileRef = ref(storage, uuidv4());
     const response = await uploadString(fileRef, image, `data_url`);
     console.log(response);
@@ -75,6 +77,7 @@ export default function ImageUpload() {
           onClick={onSubmit}
           disabled={isSubmit}
         />
+        <Category />
       </div>
     </div>
   );

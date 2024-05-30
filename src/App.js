@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Layout from "./components/Layout";
-import LoginPage from "./components/Login";
+import LoginPage from "./components/Login/Login";
 import ImageUploadPage from "./pages/imageupload";
 import MainPage from "./pages/main";
 import Lookbook from "./pages/lookbook";

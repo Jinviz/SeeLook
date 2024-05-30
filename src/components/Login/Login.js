@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { app } from "../firebaseApp";
+import { app } from "../../firebaseApp";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import "../css/Login.css";
+import "./Login.css";
 
 export default function Login() {
   const [error, setError] = useState("");

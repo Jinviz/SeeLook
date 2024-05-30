@@ -7,6 +7,9 @@ import MainPage from "./pages/main";
 import Lookbook from "./pages/lookbook";
 import SignupPage from "./components/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (
@@ -21,6 +24,7 @@ function App() {
         <Route path="/lookbook" 
         element={<ProtectedRoute><Lookbook /></ProtectedRoute>} />
       </Routes>
+      <ToastContainer />
     </Layout>
   );
 }

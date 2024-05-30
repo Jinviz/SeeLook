@@ -1,26 +1,15 @@
 import React, { useState, useRef } from "react";
+import "./Category.css";
 
 export default function Category() {
-  const [category, setCagtegory] = useState("카테고리 선택");
-  const [isOpen, setIsOpen] = useState(false);
-  // const dropdownRef = useRef(null);
+  const [category, setCategory] = useState("");
 
   const CATEGORIES = ["캐주얼", "미니멀", "스트릿"];
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
+  // 카테고리를 선택했을 때 setCategory에 저장해주기 위한 함수
+  const handleItemSelect = (e) => {
+    setCategory(e.target.value);
   };
-
-  const handleItemSelect = (item) => {
-    setCagtegory(item.name);
-    setIsOpen(false);
-  };
-
-  // const handleClose = (event) => {
-  //   if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-  //     setIsOpen(false);
-  //   }
-  // };
 
   return (
     <div className="category">
@@ -29,7 +18,7 @@ export default function Category() {
         name="category"
         id="category"
         onChange={handleItemSelect}
-        defaultValue={category}
+        value={category}
       >
         <option value="">카테고리를 선택해주세요</option>
         {CATEGORIES?.map((category) => (

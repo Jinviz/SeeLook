@@ -1,5 +1,5 @@
-import Category from "../../components/Category";
-import ImageUpload from "../../components/Imageupload";
+import Category from "../../components/Category/Category";
+import ImageUpload from "../../components/ImageUpload/Imageupload";
 
 export default function ImageUploadPage() {
   return (

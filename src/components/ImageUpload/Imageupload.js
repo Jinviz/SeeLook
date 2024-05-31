@@ -42,6 +42,7 @@ export default function ImageUpload() {
     console.log(response);
 
     setImage(null); // 업로드 후 선택한 파일 제거
+    setCategory(""); // 업로드 후 선택한 카테고리 제거
     setIsSubmit(false);
   };
 

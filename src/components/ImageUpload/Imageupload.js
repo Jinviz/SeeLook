@@ -8,6 +8,7 @@ import Category from "../Category/Category";
 export default function ImageUpload() {
   const [image, setImage] = useState(""); // 이미지를 저장하기 위한 state
   const [isSubmit, setIsSubmit] = useState(Boolean); // 파일을 업로드 하는지 상태를 파악하기 위한 state
+  const [category, setCategory] = useState(""); // 카테고리를 저장하기 위한 state
 
   // 파일을 선택 했을 때 읽어오는 함수
   const FileSelect = (e) => {
@@ -35,8 +36,8 @@ export default function ImageUpload() {
     e.preventDefault();
     setIsSubmit(true);
     const storage = getStorage();
-    // `Casual/${uuidv4()}`
-    const fileRef = ref(storage, uuidv4());
+    const filePath = `${category}/${uuidv4()}`;
+    const fileRef = ref(storage, filePath);
     const response = await uploadString(fileRef, image, `data_url`);
     console.log(response);
 
@@ -77,7 +78,7 @@ export default function ImageUpload() {
           onClick={onSubmit}
           disabled={isSubmit}
         />
-        <Category />
+        <Category category={category} setCategory={setCategory} />
       </div>
     </div>
   );

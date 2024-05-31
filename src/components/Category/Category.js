@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import "./Category.css";
-import ImageUpload from "../ImageUpload/Imageupload";
 
-export default function Category() {
-  const [category, setCategory] = useState("");
-
+export default function Category({ category, setCategory }) {
   const CATEGORIES = ["캐주얼", "미니멀", "스트릿"];
 
   // 카테고리를 선택했을 때 setCategory에 저장해주기 위한 함수
@@ -28,7 +25,6 @@ export default function Category() {
           </option>
         ))}
       </select>
-      <ImageUpload value="category" />
     </div>
   );
 }

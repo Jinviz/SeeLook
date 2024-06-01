@@ -1,35 +1,29 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { app } from '../firebaseApp';
 
-const auth = getAuth(app); // Ensure you have initialized auth with your app
+const auth = getAuth(app);
 
 export const login = async (email, password) => {
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    // 사용자 인증
-    const token = await userCredential.user.getIdToken();
-    // ID 토큰 가져오기(JWT, JSON Web Token)
-    localStorage.setItem("authToken", token);
-    // autoToken 키로 로컬 스토리지에 저장
-    console.log("Token saved to localStorage:", token); // 디버깅용 로그 추가
+    await signInWithEmailAndPassword(auth, email, password); //로그인 하기
     return true;
   } catch (error) {
     console.error("Login failed:", error);
     return false;
-    // 에러 처리
   }
 };
 
-export const isAuthenticated = () => {
-  const token = localStorage.getItem("authToken");
-  // 토큰 존재 유무 확인
-  console.log("Auth token from localStorage:", token); // 디버깅용 로그 추가
-  return !!token;
-  // token 값 boolean 타입으로 변환하기(!!)
+export const isAuthenticated = () => { //사용자 인증 상태 확인
+  return new Promise((resolve) => { //new promise - 비동기 작업을 처리하기 위한 객체
+    //비동기 작업이 성공하면 resolve 인자를,
+    //실패하면 reject를 호출
+    onAuthStateChanged(auth, (user) => { //인증 상태가 변경될 때마다 호출
+      //로그인 돼 있으면 'user' 객체 제공, 아닐 시 null
+      resolve(!!user);
+    });
+  });
 };
 
 export const logout = () => {
-  localStorage.removeItem("authToken");
   auth.signOut();
-  // 사용자 로그아웃 시키기. signOut()는 firebase의 auth 메서드
 };

@@ -1,0 +1,22 @@
+/* Main */
+
+.main {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.upload-btn,
+.lookbook-btn {
+  color: black;
+  background-color: skyblue;
+  margin: 10px;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.upload &:hover,
+&:focus {
+  background-color: blue;
+}

@@ -13,7 +13,7 @@ export default function ImageUpload() {
   const [isSubmit, setIsSubmit] = useState(Boolean); // 파일을 업로드 하는지 상태를 파악하기 위한 state
   const [category, setCategory] = useState(""); // 카테고리를 저장하기 위한 state
   const [temperature, setTemperature] = useState(""); // 기온을 저장하기 위한 state
-  const navigate = useNavigate(); // 뒤로 가기 버튼을 누를 시 Router 처리를 위한 navigate
+  const navigate = useNavigate(); // 메인 버튼을 누를 시 Router 처리를 위한 navigate
   const auth = getAuth(app); //firebase 인증 객체 가져오기
   const user = auth.currentUser; // 현재 사용자의 정보 가져오기
 
@@ -33,6 +33,7 @@ export default function ImageUpload() {
     };
   };
 
+  // 메인 버튼 누를 시 메인 페이지로 이동
   const MainBtn = () => {
     navigate("/Main");
   };
@@ -52,7 +53,7 @@ export default function ImageUpload() {
     e.preventDefault();
     setIsSubmit(true);
     const storage = getStorage();
-    const filePath = `root/${category}/${uuidv4()}`;
+    const filePath = `root/${category}/${uuidv4()}`; // 이미지가 저장되는 경로
     const fileRef = ref(storage, filePath);
 
     // 입력한 온도 및 현재 사용자 정보를 메타데이터로 보내기 위한 선언

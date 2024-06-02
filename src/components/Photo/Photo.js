@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+import { v4 as uuidv4 } from "uuid";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './Photo.css';
 
 
 const Photo = () => {
-    const storage = getStorage();
-    const filesRef = ref(storage, 'files/uid');
-    const [filesUrl, setFilesUrl] = useState([]);
+    const storage = getStorage();                   // Get firebase storage 
+    const filesRef = ref(storage, '캐주얼');        // File Ref info
+    const [filesUrl, setFilesUrl] = useState([]);  // File Url List
 
     // (스토리지) => (스토리지 Ref) => listALL -> (res.items) => getDownloadURL -> img src  
     
@@ -18,12 +19,12 @@ const Photo = () => {
         const fetchgImageUrls = async() => {
             try{
                 const imageFiles = await listAll(filesRef);
-                const imageUrls = imageFiles.items.map(async (item) => {
+                const imageUrls = await Promise.all(imageFiles.items.map(async (item) => {
                     let imageUrl = await getDownloadURL(item); 
                     return imageUrl 
-                })
-                setFilesUrl(...filesUrl, imageUrls);
-                
+                }))
+                setFilesUrl(imageUrls);
+                console.log(imageUrls)
             }catch (error){
                 console.log(error)
             }
@@ -32,8 +33,6 @@ const Photo = () => {
 
     }, [])
     
-    
-
     return (
         <>
             {}
@@ -47,13 +46,15 @@ const Photo = () => {
             modules={[Pagination]}
             className="mySwiper"
             >
-            {filesUrl?
-                filesUrl.map((fileUrl)=> {
-                    <SwiperSlide>
-                        <img src={fileUrl}/>
-                    </SwiperSlide>
-                }):<></>
-            }
+                {filesUrl.length > 0?
+                    filesUrl.map((url)=> {
+                        return(
+                            <SwiperSlide key={uuidv4()}>
+                                <img src={url}/>
+                            </SwiperSlide>
+                        )
+                    }):<></>
+                }
             </Swiper>
         </>
     )

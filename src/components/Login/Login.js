@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { app } from "../firebaseApp";
+import { app } from "../../firebaseApp";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import "./Login.css";
 
 export default function Login() {
   const [error, setError] = useState("");
@@ -19,7 +20,7 @@ export default function Login() {
       //이메일과 비밀번호를 이용해서 사용자 로그인
 
       toast.success("로그인에 성공했습니다.");
-      navigate("/"); //Route page로 이동하겠다.
+      navigate("/main"); //Route page로 이동하겠다.
     } catch (error) {
       toast.error(error?.code);
       console.log(error);

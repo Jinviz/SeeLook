@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { app } from "../firebaseApp";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
+import "./Login/Login.css"; //이거 왜 import 안해도 적용이 되는겨?
 
 export default function Signup() {
   const [error, setError] = useState("");
@@ -108,7 +109,7 @@ export default function Signup() {
       )}
       <div className="form__block">
         계정이 이미 있으신가요?
-        <Link to="/login" className="form__link">
+        <Link to="/" className="form__link">
           로그인하기
         </Link>
       </div>

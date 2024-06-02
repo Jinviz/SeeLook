@@ -1,11 +1,9 @@
-import Category from "../../components/Category";
-import ImageUpload from "../../components/Imageupload";
+import ImageUpload from "../../components/ImageUpload/Imageupload";
 
 export default function ImageUploadPage() {
   return (
     <>
       <ImageUpload />
-      <Category />
     </>
   );
 }

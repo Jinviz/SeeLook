@@ -6,10 +6,13 @@
 }
 
 .category select {
-  border: 2px solid black;
+  border: 2px solid rgb(175, 175, 175);
+  color: black;
   text-align: center;
   max-width: 680px;
   height: 40px;
   padding: 0px 20px;
   border-radius: 0.5rem;
+  font-size: 13px;
+  font-weight: 700;
 }

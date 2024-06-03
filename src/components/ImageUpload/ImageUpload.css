@@ -1,5 +1,15 @@
 /* ImageUpload */
 
+.image {
+  background-color: rgb(70, 70, 70);
+  border-radius: 0.5rem;
+  padding: 5px;
+  margin: 5px;
+  border: none;
+  max-width: 500px;
+  max-height: 700px;
+}
+
 .image-area {
   display: flex;
   flex-direction: column;
@@ -9,8 +19,8 @@
   padding-top: 20px;
   padding-bottom: 20px;
   margin-bottom: 20px;
-  max-width: 100%;
-  max-height: 50%;
+  max-width: 500px;
+  max-height: 700px;
 }
 
 .image-select {
@@ -23,7 +33,7 @@
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
-  background-color: skyblue;
+  background-color: rgb(240, 130, 10);
   border-radius: 5px;
   border: none;
   color: white;
@@ -31,11 +41,9 @@
 }
 
 .image-attachment {
-  background-color: aliceblue;
-  border-radius: 5%;
-  padding: 25px;
-  width: 25%;
-  height: 25%;
+  padding: 10px;
+  width: 300px;
+  height: 300px;
 }
 
 .image-submit-btn {
@@ -44,4 +52,39 @@
 
 .image-clear-btn {
   margin-top: 10px;
+}
+
+.temperature-input {
+  border: 2px solid rgb(175, 175, 175);
+  color: black;
+  text-align: center;
+  height: 20px;
+  padding: 5px 0px;
+  border-radius: 0.5rem;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.main-btn,
+.image-submit-btn,
+.image-clear-btn {
+  color: white;
+  background-color: rgb(240, 130, 10);
+  margin: 10px;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.main-btn:hover,
+.main-btn:focus,
+.image-submit-btn:hover,
+.image-submit-btn:focus,
+.image-clear-btn:hover,
+.image-clear-btn:focus,
+.image-area__file:hover,
+.image-area__file:focus {
+  background-color: rgb(215, 110, 10);
 }

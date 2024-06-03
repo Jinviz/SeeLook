@@ -1,6 +1,6 @@
 /* Main */
 
-.main {
+.main-btn-bundle {
   position: relative;
   display: flex;
   align-items: center;
@@ -8,15 +8,20 @@
 
 .upload-btn,
 .lookbook-btn {
-  color: black;
-  background-color: skyblue;
+  color: white;
+  background-color: rgb(240, 130, 10);
+  padding: 20px;
   margin: 10px;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
+  font-size: 25px;
+  font-weight: 600;
 }
 
-.upload &:hover,
-&:focus {
-  background-color: blue;
+.upload-btn:hover,
+.upload-btn:focus,
+.lookbook-btn:hover,
+.lookbook-btn:focus {
+  background-color: rgb(215, 110, 10);
 }

@@ -1,5 +1,8 @@
 import { getStorage, ref, uploadString } from "firebase/storage";
+import { getAuth } from "firebase/auth";
+import { app } from "../../firebaseApp";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FiImage } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
 import "./ImageUpload.css";
@@ -10,6 +13,9 @@ export default function ImageUpload() {
   const [isSubmit, setIsSubmit] = useState(Boolean); // 파일을 업로드 하는지 상태를 파악하기 위한 state
   const [category, setCategory] = useState(""); // 카테고리를 저장하기 위한 state
   const [temperature, setTemperature] = useState(""); // 기온을 저장하기 위한 state
+  const navigate = useNavigate(); // 메인 버튼을 누를 시 Router 처리를 위한 navigate
+  const auth = getAuth(app); //firebase 인증 객체 가져오기
+  const user = auth.currentUser; // 현재 사용자의 정보 가져오기
 
   // 파일을 선택 했을 때 읽어오는 함수
   const FileSelect = (e) => {
@@ -27,11 +33,17 @@ export default function ImageUpload() {
     };
   };
 
+  // 메인 버튼 누를 시 메인 페이지로 이동
+  const MainBtn = () => {
+    navigate("/Main");
+  };
+
   // 선택한 이미지를 삭제하기 위한 함수
   const FileDelete = () => {
     setImage(null);
   };
 
+  // 입력한 기온 값을 넣기 위한 함수
   const TemperatureInput = (e) => {
     setTemperature(e.target.value);
   };
@@ -41,12 +53,14 @@ export default function ImageUpload() {
     e.preventDefault();
     setIsSubmit(true);
     const storage = getStorage();
-    const filePath = `${category}/${uuidv4()}`;
+    const filePath = `root/${category}/${uuidv4()}`; // 이미지가 저장되는 경로
     const fileRef = ref(storage, filePath);
 
+    // 입력한 온도 및 현재 사용자 정보를 메타데이터로 보내기 위한 선언
     const metadata = {
       customMetadata: {
-        temperature: temperature,
+        temperature: temperature, // 입력한 온도 값
+        user: user.email, // 유저의 이메일
       },
     };
 
@@ -61,9 +75,12 @@ export default function ImageUpload() {
 
   return (
     <div className="image">
+      <button className="main-btn" type="button" onClick={MainBtn}>
+        메인
+      </button>
       <div className="image-area">
         <label htmlFor="file-input" className="image-area__file">
-          <FiImage size="30" className="post-form__file-icon" />
+          <FiImage size="30" className="file-icon" />
         </label>
         <input
           type="file"
@@ -73,18 +90,6 @@ export default function ImageUpload() {
           accept="image/*"
           onChange={FileSelect}
         />
-        {image && (
-          <div className="image-attachment">
-            <img src={image} alt="attachment" width={500} height={500} />
-            <button
-              className="image-clear-btn"
-              type="button"
-              onClick={FileDelete}
-            >
-              Clear
-            </button>
-          </div>
-        )}
         <input
           type="text"
           value={temperature}
@@ -92,14 +97,27 @@ export default function ImageUpload() {
           placeholder="기온을 입력 해주세요"
           className="temperature-input"
         />
+
         <Category category={category} setCategory={setCategory} />
-        <input
-          type="submit"
-          value="Upload"
-          className="image-submit-btn"
-          onClick={onSubmit}
-          disabled={isSubmit}
-        />
+        {image && (
+          <div className="image-attachment">
+            <img src={image} alt="attachment" />
+            <input
+              type="submit"
+              value="업로드"
+              className="image-submit-btn"
+              onClick={onSubmit}
+              disabled={isSubmit}
+            />
+            <button
+              className="image-clear-btn"
+              type="button"
+              onClick={FileDelete}
+            >
+              삭제
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

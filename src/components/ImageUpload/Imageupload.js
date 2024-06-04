@@ -7,7 +7,6 @@ import { FiImage } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
 import "./ImageUpload.css";
 import Category from "../Category/Category";
-
 export default function ImageUpload() {
   const [image, setImage] = useState(""); // 이미지를 저장하기 위한 state
   const [isSubmit, setIsSubmit] = useState(Boolean); // 파일을 업로드 하는지 상태를 파악하기 위한 state
@@ -22,11 +21,9 @@ export default function ImageUpload() {
     const {
       target: { files },
     } = e;
-
     const file = files?.[0];
     const fileReader = new FileReader();
     fileReader?.readAsDataURL(file);
-
     fileReader.onloadend = (e) => {
       const { result } = e?.currentTarget;
       setImage(result);
@@ -47,7 +44,6 @@ export default function ImageUpload() {
   const TemperatureInput = (e) => {
     setTemperature(e.target.value);
   };
-
   // 이미지를 업로드하기 위한 함수
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -66,7 +62,6 @@ export default function ImageUpload() {
 
     const response = await uploadString(fileRef, image, `data_url`, metadata);
     console.log(response);
-
     setImage(null); // 업로드 후 선택한 파일 제거
     setCategory(""); // 업로드 후 선택한 카테고리 제거
     setTemperature(""); // 업로드 후 기온 제거

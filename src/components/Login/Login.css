@@ -98,3 +98,11 @@ body {
   background-color: var(--border-color);
   cursor: not-allowed;
 }
+
+.form__block {
+  margin-bottom: 10px;
+}
+
+.form__block--loginbutton {
+  margin-top: 20px;
+}

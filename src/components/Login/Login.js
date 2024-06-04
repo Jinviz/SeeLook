@@ -94,7 +94,7 @@ export default function Login() {
           회원가입하기
         </Link>
       </div>
-      <div className="form__block">
+      <div className="form__block--loginbutton">
         <input
           type="submit"
           value="로그인"

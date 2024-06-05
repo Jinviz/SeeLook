@@ -55,7 +55,7 @@ export const getCroppedImg = async(imageSrc, pixelCrop, rotation = 0) => {
 }
 
 
-const generateDownload = async (imageSrc, crop, setImage) => {
+export const generateDownload = async (imageSrc, crop, setImage) => {
 	if (!crop || !imageSrc) {
 		return;
 	}

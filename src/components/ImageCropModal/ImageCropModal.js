@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 import {generateDownload} from '../../utils/CropImage';
 import Cropper from 'react-easy-crop';
-import './ImageCrop.css';
+import "./ImageCropModal.css";
 import { getDownloadURL } from 'firebase/storage';
 
 const ImageCrop = ({setCropModal, setImage, preImage}) => {
@@ -16,7 +16,7 @@ const ImageCrop = ({setCropModal, setImage, preImage}) => {
     }
 
     const onDownload = () => {
-		generateDownload(image, croppedArea);
+		generateDownload(preImage, croppedArea, setImage);
 	};
 
     useOnClickOutside(ref, () => { 
@@ -59,7 +59,7 @@ const ImageCrop = ({setCropModal, setImage, preImage}) => {
                             }}
                             className="zoom-range"
                             />
-                            <button onClick={() => onDownload}/>
+                            <button onClick={onDownload}/>
                         </div>
                     </div>
                 </div>

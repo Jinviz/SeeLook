@@ -67,11 +67,28 @@ const Photo = () => {
 
   return (
     <>
-      <div>
-        <button onClick={() => setCategory("root")}>전체</button>
-        <button onClick={() => setCategory("root/캐주얼")}>캐주얼</button>
-        <button onClick={() => setCategory("root/미니멀")}>미니멀</button>
-        <button onClick={() => setCategory("root/스트릿")}>스트릿</button>
+      <div className="category-btn-bundle">
+        <button className="category-btn" onClick={() => setCategory("root")}>
+          전체
+        </button>
+        <button
+          className="category-btn"
+          onClick={() => setCategory("root/캐주얼")}
+        >
+          캐주얼
+        </button>
+        <button
+          className="category-btn"
+          onClick={() => setCategory("root/미니멀")}
+        >
+          미니멀
+        </button>
+        <button
+          className="category-btn"
+          onClick={() => setCategory("root/스트릿")}
+        >
+          스트릿
+        </button>
       </div>
       {}
       <Swiper

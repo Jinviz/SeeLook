@@ -7,6 +7,7 @@ import { FiImage } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
 import "./ImageUpload.css";
 import Category from "../Category/Category";
+
 export default function ImageUpload() {
   const [image, setImage] = useState(""); // 이미지를 저장하기 위한 state
   const [isSubmit, setIsSubmit] = useState(Boolean); // 파일을 업로드 하는지 상태를 파악하기 위한 state

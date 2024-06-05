@@ -7,6 +7,7 @@ import { FiImage } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
 import "./ImageUpload.css";
 import Category from "../Category/Category";
+import ImageCrop from "../ImageCropModal/ImageCropModal";
 export default function ImageUpload() {
   const [image, setImage] = useState(""); // 이미지를 저장하기 위한 state
   const [isSubmit, setIsSubmit] = useState(Boolean); // 파일을 업로드 하는지 상태를 파악하기 위한 state
@@ -15,6 +16,8 @@ export default function ImageUpload() {
   const navigate = useNavigate(); // 메인 버튼을 누를 시 Router 처리를 위한 navigate
   const auth = getAuth(app); //firebase 인증 객체 가져오기
   const user = auth.currentUser; // 현재 사용자의 정보 가져오기
+  const [cropModal, setCropModal] = useState(false); // 이미지 크롭 모달창 활성화 state
+  const [preImage, setPreImage] = useState(null); // 크롭 전 이미지  
 
   // 파일을 선택 했을 때 읽어오는 함수
   const FileSelect = (e) => {
@@ -26,7 +29,8 @@ export default function ImageUpload() {
     fileReader?.readAsDataURL(file);
     fileReader.onloadend = (e) => {
       const { result } = e?.currentTarget;
-      setImage(result);
+      setPreImage(result);
+      setCropModal(true);
     };
   };
 
@@ -103,14 +107,17 @@ export default function ImageUpload() {
               className="image-submit-btn"
               onClick={onSubmit}
               disabled={isSubmit}
-            />
+              />
             <button
               className="image-clear-btn"
               type="button"
               onClick={FileDelete}
-            >
+              >
               삭제
             </button>
+            
+            {cropModal && <ImageCrop setCropModal={setCropModal} setImage={setImage} preImage={preImage}/>} 
+
           </div>
         )}
       </div>

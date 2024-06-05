@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+import {
+  getStorage,
+  ref,
+  listAll,
+  getDownloadURL,
+  getMetadata,
+} from "firebase/storage";
 import { v4 as uuidv4 } from "uuid";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -45,7 +51,8 @@ const Photo = () => {
           const imageUrls = await Promise.all(
             imageFiles.items.map(async (item) => {
               let imageUrl = await getDownloadURL(item);
-              return imageUrl;
+              let metadata = await getMetadata(item);
+              return { imageUrl: imageUrl, metadata: metadata };
             })
           );
           allImageUrls.push(...imageUrls); // imageUrls 배열의 모든 요소를 추가
@@ -105,7 +112,8 @@ const Photo = () => {
           filesUrl.map((url) => {
             return (
               <SwiperSlide key={uuidv4()}>
-                <img src={url} />
+                <img src={url.imageUrl} />
+                <p>Upload Date: {url.metadata.customMetadata.uploadDate}</p>
               </SwiperSlide>
             );
           })

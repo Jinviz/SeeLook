@@ -17,6 +17,7 @@ export default function ImageUpload() {
   const auth = getAuth(app); //firebase 인증 객체 가져오기
   const user = auth.currentUser; // 현재 사용자의 정보 가져오기
   const nowDate = new Date(); // 현재 날짜 가져오기
+  const ISODate = new Date().toISOString; // ISO 문자열로 시간 받아오기
 
   // 파일을 선택 했을 때 읽어오는 함수
   const FileSelect = (e) => {

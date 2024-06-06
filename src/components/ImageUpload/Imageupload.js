@@ -7,6 +7,8 @@ import { FiImage } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
 import "./ImageUpload.css";
 import Category from "../Category/Category";
+import ImageCropModal from "../ImageCropModal/ImageCropModal.js";
+import { createPortal } from "react-dom";
 
 export default function ImageUpload() {
   const [image, setImage] = useState(""); // 이미지를 저장하기 위한 state
@@ -74,55 +76,57 @@ export default function ImageUpload() {
   };
 
   return (
-    <div className="image">
-      <button className="main-btn" type="button" onClick={MainBtn}>
-        메인
-      </button>
-      <div className="image-area">
-        <label htmlFor="file-input" className="image-area__file">
-          <FiImage size="30" className="file-icon" />
-        </label>
-        <input
-          type="file"
-          name="file-input"
-          id="file-input"
-          className="image-select"
-          accept="image/*"
-          onChange={FileSelect}
-        />
-        <input
-          type="text"
-          value={temperature}
-          onChange={TemperatureInput}
-          placeholder="기온을 입력 해주세요"
-          className="temperature-input"
-        />
+    <>
+      <div className="image">
+        <button className="main-btn" type="button" onClick={MainBtn}>
+          메인
+        </button>
+        <div className="image-area">
+          <label htmlFor="file-input" className="image-area__file">
+            <FiImage size="30" className="file-icon" />
+          </label>
+          <input
+            type="file"
+            name="file-input"
+            id="file-input"
+            className="image-select"
+            accept="image/*"
+            onChange={FileSelect}
+          />
+          <input
+            type="text"
+            value={temperature}
+            onChange={TemperatureInput}
+            placeholder="기온을 입력 해주세요"
+            className="temperature-input"
+          />
 
-        <Category category={category} setCategory={setCategory} />
-        
-        {image && (
-          <div className="image-attachment">
-            <img src={image} alt="attachment" />
-            <input
-              type="submit"
-              value="업로드"
-              className="image-submit-btn"
-              onClick={onSubmit}
-              disabled={isSubmit}
-              />
-            <button
-              className="image-clear-btn"
-              type="button"
-              onClick={FileDelete}
-              >
-              삭제
-            </button>
-            
-
-          </div>
-        )}
+          <Category category={category} setCategory={setCategory} />
+          
+          {image && (
+            <div className="image-attachment">
+              <img src={image} alt="attachment" />
+              <input
+                type="submit"
+                value="업로드"
+                className="image-submit-btn"
+                onClick={onSubmit}
+                disabled={isSubmit}
+                />
+              <button
+                className="image-clear-btn"
+                type="button"
+                onClick={FileDelete}
+                >
+                삭제
+              </button>
+            </div>
+          )}
+        </div>
       </div>
-      {cropModal && <ImageCropModal setCropModal={setCropModal} setImage={setImage} preImage={preImage}/>} 
-    </div>
+      {cropModal && 
+      createPortal(<ImageCropModal setCropModal={setCropModal} setImage={setImage} preImage={preImage}/>
+      , document.getElementById('root'))} 
+    </>
   );
 }

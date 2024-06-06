@@ -37,13 +37,14 @@ const ImageCropModal = ({setCropModal, setImage, preImage}) => {
                     <div className='modal__content'>
                         <div className="crop-container">
                             <Cropper
-                            image="assets/background/background_layout_type_a.jpg"
+                            image={preImage}
                             crop={crop}
                             zoom={zoom}
-                            aspect={4 / 5}
+                            aspect={7 / 10}
                             onCropChange={setCrop}
                             onCropComplete={onCropComplete}
                             onZoomChange={setZoom}
+                            className="crop-croper"
                             />
                         </div>
                         <div className="controls">

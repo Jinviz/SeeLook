@@ -7,7 +7,7 @@ import { FiImage } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
 import "./ImageUpload.css";
 import Category from "../Category/Category";
-import ImageCropModal from "../ImageCropModal/ImageCropModal";
+
 export default function ImageUpload() {
   const [image, setImage] = useState(""); // 이미지를 저장하기 위한 state
   const [isSubmit, setIsSubmit] = useState(Boolean); // 파일을 업로드 하는지 상태를 파악하기 위한 state
@@ -48,6 +48,7 @@ export default function ImageUpload() {
   const TemperatureInput = (e) => {
     setTemperature(e.target.value);
   };
+
   // 이미지를 업로드하기 위한 함수
   const onSubmit = async (e) => {
     e.preventDefault();

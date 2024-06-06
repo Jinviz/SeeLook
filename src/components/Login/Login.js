@@ -94,7 +94,7 @@ export default function Login() {
           회원가입하기
         </Link>
       </div>
-      <div className="form__block">
+      <div className="form__block--loginbutton">
         <input
           type="submit"
           value="로그인"
@@ -105,5 +105,6 @@ export default function Login() {
     </form>
   );
 }
+
 
 //91번째 link to는 페이지 구조에 따라서 경로 수정 예정

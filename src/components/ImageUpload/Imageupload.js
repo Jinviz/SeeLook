@@ -7,7 +7,7 @@ import { FiImage } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
 import "./ImageUpload.css";
 import Category from "../Category/Category";
-import ImageCrop from "../ImageCropModal/ImageCropModal";
+import ImageCropModal from "../ImageCropModal/ImageCropModal";
 export default function ImageUpload() {
   const [image, setImage] = useState(""); // 이미지를 저장하기 위한 state
   const [isSubmit, setIsSubmit] = useState(Boolean); // 파일을 업로드 하는지 상태를 파악하기 위한 state
@@ -98,6 +98,7 @@ export default function ImageUpload() {
         />
 
         <Category category={category} setCategory={setCategory} />
+        
         {image && (
           <div className="image-attachment">
             <img src={image} alt="attachment" />
@@ -116,11 +117,11 @@ export default function ImageUpload() {
               삭제
             </button>
             
-            {cropModal && <ImageCrop setCropModal={setCropModal} setImage={setImage} preImage={preImage}/>} 
 
           </div>
         )}
       </div>
+      {cropModal && <ImageCropModal setCropModal={setCropModal} setImage={setImage} preImage={preImage}/>} 
     </div>
   );
 }

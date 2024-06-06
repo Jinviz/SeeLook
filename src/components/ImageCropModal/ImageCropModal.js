@@ -5,7 +5,7 @@ import Cropper from 'react-easy-crop';
 import "./ImageCropModal.css";
 import { getDownloadURL } from 'firebase/storage';
 
-const ImageCrop = ({setCropModal, setImage, preImage}) => {
+const ImageCropModal = ({setCropModal, setImage, preImage}) => {
     const [crop, setCrop] = useState({ x: 0, y: 0 })
     const [zoom, setZoom] = useState(1)
     const [croppedArea, setCroppedArea] = useState(null);
@@ -37,7 +37,7 @@ const ImageCrop = ({setCropModal, setImage, preImage}) => {
                     <div className='modal__content'>
                         <div className="crop-container">
                             <Cropper
-                            image={preImage}
+                            image="assets/background/background_layout_type_a.jpg"
                             crop={crop}
                             zoom={zoom}
                             aspect={4 / 5}
@@ -67,4 +67,4 @@ const ImageCrop = ({setCropModal, setImage, preImage}) => {
         </div>
     )
 }
-export default ImageCrop
+export default ImageCropModal

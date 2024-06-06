@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Category.css";
 
 export default function Category({ category, setCategory }) {

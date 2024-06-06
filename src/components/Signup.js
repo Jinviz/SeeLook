@@ -113,7 +113,7 @@ export default function Signup() {
           로그인하기
         </Link>
       </div>
-      <div className="form__block">
+      <div className="form__block--loginbutton">
         <input
           type="submit"
           value="회원가입"

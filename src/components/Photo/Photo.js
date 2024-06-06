@@ -21,54 +21,86 @@ const Photo = () => {
   // (스토리지) => (스토리지 Ref) => listALL -> (res.items) => getDownloadURL -> img src
 
   useEffect(() => {
-    const fetchgImageUrls = async (category) => {
+    const fetchImageUrls = async (category) => {
       const filesRef = ref(storage, category); // File Ref info
       try {
         const imageFiles = await listAll(filesRef);
         const imageUrls = await Promise.all(
           imageFiles.items.map(async (item) => {
-            let imageUrl = await getDownloadURL(item);
-            return imageUrl;
+            const imageUrl = await getDownloadURL(item); // 이미지 다운로드 URL 가져오기
+            const metadata = await getMetadata(item); // 이미지 메타데이터 가져오기
+            const uploadDate = metadata.timeCreated; // 이미지 생성 날짜 가져오기
+            return {
+              imageUrl,
+              metadata: {
+                ...metadata,
+                customMetadata: {
+                  ...metadata.customMetadata,
+                  uploadDate, // 생성 날짜를 업로드 날짜로 할당해주기
+                },
+              },
+            };
           })
         );
+
+        // 생성 날짜를 기준으로 이미지 내림차순 정렬
+        imageUrls.sort(
+          (a, b) =>
+            new Date(b.metadata.customMetadata.uploadDate) -
+            new Date(a.metadata.customMetadata.uploadDate)
+        );
+
         setFilesUrl(imageUrls);
-        console.log(imageUrls);
       } catch (error) {
         console.log(error);
       }
     };
 
-    const fetchgAllImageUrls = async () => {
+    const fetchAllImageUrls = async () => {
       const rootRef = ref(storage, "root"); // root 폴더 참조 생성
       try {
         const allImageUrls = []; // 모든 이미지의 Url을 담을 배열
         const rootFolder = await listAll(rootRef); // root 폴더의 모든 항목 목록 가져오기
 
-        // rootFolder.prefixes는 root 폴더 아래의 모든 하위 폴더를 나타내는 배열이다.
         for (const folder of rootFolder.prefixes) {
-          // 모든 하위 폴더 순회하기
           const imageFiles = await listAll(folder);
           const imageUrls = await Promise.all(
             imageFiles.items.map(async (item) => {
-              let imageUrl = await getDownloadURL(item);
-              let metadata = await getMetadata(item);
-              return { imageUrl: imageUrl, metadata: metadata };
+              const imageUrl = await getDownloadURL(item); // 이미지 다운로드 URL 가져오기
+              const metadata = await getMetadata(item); // 이미지 메타데이터 가져오기
+              const uploadDate = metadata.timeCreated; // 이미지 생성 날짜 가져오기
+              return {
+                imageUrl,
+                metadata: {
+                  ...metadata,
+                  customMetadata: {
+                    ...metadata.customMetadata,
+                    uploadDate, // 생성 날짜를 업로드 날짜로 할당해주기
+                  },
+                },
+              };
             })
           );
-          allImageUrls.push(...imageUrls); // imageUrls 배열의 모든 요소를 추가
-          // ...을 사용하는 이유는 배열의 요소 하나하나를 저장하기 위함
+          allImageUrls.push(...imageUrls);
         }
+
+        // 생성 날짜를 기준으로 이미지 내림차순 정렬
+        allImageUrls.sort(
+          (a, b) =>
+            new Date(b.metadata.customMetadata.uploadDate) -
+            new Date(a.metadata.customMetadata.uploadDate)
+        );
+
         setFilesUrl(allImageUrls);
-        console.log(allImageUrls);
       } catch (error) {
         console.log(error);
       }
     };
 
     if (category === "root") {
-      fetchgAllImageUrls();
+      fetchAllImageUrls();
     } else {
-      fetchgImageUrls(category);
+      fetchImageUrls(category);
     }
   }, [category]);
 
@@ -97,7 +129,6 @@ const Photo = () => {
           스트릿
         </button>
       </div>
-      {}
       <Swiper
         slidesPerView={"auto"}
         centeredSlides={true}
@@ -109,14 +140,17 @@ const Photo = () => {
         className="mySwiper"
       >
         {filesUrl.length > 0 ? (
-          filesUrl.map((url) => {
-            return (
-              <SwiperSlide key={uuidv4()}>
-                <img src={url.imageUrl} />
-                <p>Upload Date: {url.metadata.customMetadata.uploadDate}</p>
-              </SwiperSlide>
-            );
-          })
+          filesUrl.map((url) => (
+            <SwiperSlide key={uuidv4()}>
+              <img src={url.imageUrl} alt="Uploaded" />
+              <p>
+                업로드 시간:{" "}
+                {new Date(
+                  url.metadata.customMetadata.uploadDate
+                ).toLocaleString()}
+              </p>
+            </SwiperSlide>
+          ))
         ) : (
           <></>
         )}

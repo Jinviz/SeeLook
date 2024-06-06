@@ -54,15 +54,12 @@ export default function ImageUpload() {
     const storage = getStorage();
     const filePath = `root/${category}/${uuidv4()}`; // 이미지가 저장되는 경로
     const fileRef = ref(storage, filePath);
-    const uploadDate = `${nowDate.getFullYear()}년 ${nowDate.getMonth()}월 ${nowDate.getDate()}일 
-    ${nowDate.getHours()}시 ${nowDate.getMinutes()}분 ${nowDate.getSeconds()}초`;
 
     // 입력한 온도 및 현재 사용자 정보를 메타데이터로 보내기 위한 선언
     const metadata = {
       customMetadata: {
         temperature: temperature, // 입력한 온도 값
         user: user.email, // 유저의 이메일
-        uploadDate: uploadDate, // 업로드 날짜
       },
     };
 

@@ -7,6 +7,8 @@ import { FiImage } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
 import "./ImageUpload.css";
 import Category from "../Category/Category";
+import ImageCropModal from "../ImageCropModal/ImageCropModal.js";
+import { createPortal } from "react-dom";
 
 export default function ImageUpload() {
   const [image, setImage] = useState(""); // 이미지를 저장하기 위한 state
@@ -16,6 +18,8 @@ export default function ImageUpload() {
   const navigate = useNavigate(); // 메인 버튼을 누를 시 Router 처리를 위한 navigate
   const auth = getAuth(app); // firebase 인증 객체 가져오기
   const user = auth.currentUser; // 현재 사용자의 정보 가져오기
+  const [cropModal, setCropModal] = useState(false); // 이미지 크롭 모달창 활성화 state
+  const [preImage, setPreImage] = useState(""); // 크롭 전 이미지  
 
   // 파일을 선택 했을 때 읽어오는 함수
   const FileSelect = (e) => {
@@ -28,11 +32,13 @@ export default function ImageUpload() {
       fileReader?.readAsDataURL(file);
       fileReader.onloadend = (e) => {
         const { result } = e?.currentTarget;
-        setImage(result);
+        setPreImage(result);
+        setCropModal(true);
       };
     } else {
-      setImage(image);
+      setPreImage(preImage);
     }
+    e.target.value = '';
   };
 
   // 메인 버튼 누를 시 메인 페이지로 이동
@@ -43,6 +49,7 @@ export default function ImageUpload() {
   // 선택한 이미지를 삭제하기 위한 함수
   const FileDelete = () => {
     setImage(null);
+    setPreImage(null);
   };
 
   // 입력한 기온 값을 넣기 위한 함수
@@ -76,51 +83,57 @@ export default function ImageUpload() {
   };
 
   return (
-    <div className="image">
-      <button className="main-btn" type="button" onClick={MainBtn}>
-        메인
-      </button>
-      <div className="image-area">
-        <label htmlFor="file-input" className="image-area__file">
-          <FiImage size="30" className="file-icon" />
-        </label>
-        <input
-          type="file"
-          name="file-input"
-          id="file-input"
-          className="image-select"
-          accept="image/*"
-          onChange={FileSelect}
-        />
-        <input
-          type="text"
-          value={temperature}
-          onChange={TemperatureInput}
-          placeholder="기온을 입력 해주세요"
-          className="temperature-input"
-        />
+    <>
+      <div className="image">
+        <button className="main-btn" type="button" onClick={MainBtn}>
+          메인
+        </button>
+        <div className="image-area">
+          <label htmlFor="file-input" className="image-area__file">
+            <FiImage size="30" className="file-icon" />
+          </label>
+          <input
+            type="file"
+            name="file-input"
+            id="file-input"
+            className="image-select"
+            accept="image/*"
+            onChange={FileSelect}
+          />
+          <input
+            type="text"
+            value={temperature}
+            onChange={TemperatureInput}
+            placeholder="기온을 입력 해주세요"
+            className="temperature-input"
+          />
 
-        <Category category={category} setCategory={setCategory} />
-        {image && (
-          <div className="image-attachment">
-            <img src={image} alt="attachment" />
-            <input
-              type="submit"
-              value="업로드"
-              className="image-submit-btn"
-              onClick={onSubmit}
-              disabled={isSubmit}
-            />
-            <button
-              className="image-clear-btn"
-              type="button"
-              onClick={FileDelete}
-            >
-              삭제
-            </button>
-          </div>
-        )}
+          <Category category={category} setCategory={setCategory} />
+          
+          {image && (
+            <div className="image-attachment">
+              <img src={image} alt="attachment" />
+              <input
+                type="submit"
+                value="업로드"
+                className="image-submit-btn"
+                onClick={onSubmit}
+                disabled={isSubmit}
+                />
+              <button
+                className="image-clear-btn"
+                type="button"
+                onClick={FileDelete}
+                >
+                삭제
+              </button>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+      {cropModal && 
+      createPortal(<ImageCropModal setCropModal={setCropModal} setImage={setImage} preImage={preImage}/>
+      , document.getElementById('root'))} 
+    </>
   );
 }

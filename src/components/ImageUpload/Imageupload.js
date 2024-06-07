@@ -14,7 +14,7 @@ export default function ImageUpload() {
   const [category, setCategory] = useState(""); // 카테고리를 저장하기 위한 state
   const [temperature, setTemperature] = useState(""); // 기온을 저장하기 위한 state
   const navigate = useNavigate(); // 메인 버튼을 누를 시 Router 처리를 위한 navigate
-  const auth = getAuth(app); //firebase 인증 객체 가져오기
+  const auth = getAuth(app); // firebase 인증 객체 가져오기
   const user = auth.currentUser; // 현재 사용자의 정보 가져오기
 
   // 파일을 선택 했을 때 읽어오는 함수
@@ -58,6 +58,7 @@ export default function ImageUpload() {
     const metadata = {
       customMetadata: {
         temperature: temperature, // 입력한 온도 값
+        userID: user.uid, // 유저의 uid
         user: user.email, // 유저의 이메일
       },
     };

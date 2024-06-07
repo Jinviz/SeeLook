@@ -61,15 +61,19 @@ export const generateDownload = async (imageSrc, crop, setImage) => {
 	}
 
 	const canvas = await getCroppedImg(imageSrc, crop);
+	const imageDataUrl = canvas.toDataURL("image/png", 0.95);
+	setImage(imageDataUrl);
 
-	canvas.toBlob(
-		(blob) => {
-			const previewUrl = window.URL.createObjectURL(blob); // URL 생성
-			setImage(previewUrl); // Cropped image url 저장
-			window.URL.revokeObjectURL(previewUrl); // URL 해제
-		},
-		"image/png",
-		0.95
-	);
+	// Convert to Blob data
+	
+	// canvas.toBlob(
+	// 	(blob) => {
+	// 		const previewUrl = window.URL.createObjectURL(blob); // create URL
+	// 		setImage(previewUrl); // save cropped image url 
+	// 		// window.URL.revokeObjectURL(previewUrl); //  url
+	// 	},
+	// 	"image/png",
+	// 	0.95
+	// );
 };
     

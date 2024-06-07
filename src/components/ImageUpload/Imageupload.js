@@ -19,7 +19,7 @@ export default function ImageUpload() {
   const auth = getAuth(app); // firebase 인증 객체 가져오기
   const user = auth.currentUser; // 현재 사용자의 정보 가져오기
   const [cropModal, setCropModal] = useState(false); // 이미지 크롭 모달창 활성화 state
-  const [preImage, setPreImage] = useState(null); // 크롭 전 이미지  
+  const [preImage, setPreImage] = useState(""); // 크롭 전 이미지  
 
   // 파일을 선택 했을 때 읽어오는 함수
   const FileSelect = (e) => {
@@ -38,6 +38,7 @@ export default function ImageUpload() {
     } else {
       setPreImage(preImage);
     }
+    e.target.value = '';
   };
 
   // 메인 버튼 누를 시 메인 페이지로 이동
@@ -48,6 +49,7 @@ export default function ImageUpload() {
   // 선택한 이미지를 삭제하기 위한 함수
   const FileDelete = () => {
     setImage(null);
+    setPreImage(null);
   };
 
   // 입력한 기온 값을 넣기 위한 함수

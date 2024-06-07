@@ -8,6 +8,8 @@ import {
   getDownloadURL,
   getMetadata,
 } from "firebase/storage";
+import { getAuth } from "firebase/auth";
+import { app } from "../../firebaseApp";
 import { v4 as uuidv4 } from "uuid";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -15,6 +17,9 @@ import "./Photo.css";
 
 const Photo = () => {
   const storage = getStorage(); // Get firebase storage
+  const auth = getAuth(app); // firebase 인증 객체 가져오기
+  const user = auth.currentUser; // 현재 사용자의 정보 가져오기
+
   const [category, setCategory] = useState("root"); // 기본 카테고리 root
   const [filesUrl, setFilesUrl] = useState([]); // File Url List
 
@@ -43,15 +48,21 @@ const Photo = () => {
           })
         );
 
+        // 현재 로그인한 사용자의 이미지로 필터링을 한 후 userImages에 저장
+        // image는 element를 뜻함. (요소)
+        const userImages = imageUrls.filter(
+          (image) => image.metadata.customMetadata.userID === user.uid
+        );
+
         // 생성 날짜를 기준으로 이미지 내림차순 정렬
-        imageUrls.sort(
+        userImages.sort(
           (a, b) =>
             new Date(b.metadata.customMetadata.uploadDate) -
             new Date(a.metadata.customMetadata.uploadDate)
         );
 
-        setFilesUrl(imageUrls);
-        console.log(imageUrls);
+        setFilesUrl(userImages);
+        console.log(userImages);
       } catch (error) {
         console.log(error);
       }
@@ -88,15 +99,21 @@ const Photo = () => {
           // ...을 사용하는 이유는 배열의 요소 하나하나를 저장하기 위함
         }
 
+        // 현재 로그인한 사용자의 이미지로 필터링을 한 후 userImages에 저장
+        // image는 element를 뜻함. (요소)
+        const userImages = allImageUrls.filter(
+          (image) => image.metadata.customMetadata.userID === user.uid
+        );
+
         // 생성 날짜를 기준으로 이미지 내림차순 정렬
-        allImageUrls.sort(
+        userImages.sort(
           (a, b) =>
             new Date(b.metadata.customMetadata.uploadDate) -
             new Date(a.metadata.customMetadata.uploadDate)
         );
 
-        setFilesUrl(allImageUrls);
-        console.log(allImageUrls);
+        setFilesUrl(userImages);
+        console.log(userImages);
       } catch (error) {
         console.log(error);
       }

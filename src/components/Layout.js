@@ -53,6 +53,18 @@ const TitleContainer = styled.div`
     transform: rotate(-90deg);
     transform-origin: right center;
     z-index: 2;
+
+    @media (max-width: 768px) {
+        font-size: 120px;
+        top: -50px;
+        right: 50px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 80px;
+        top: -30px;
+        right: 20px;
+    }
 `;
 
 const ContentContainer = styled.div`
@@ -65,4 +77,13 @@ const ContentContainer = styled.div`
     max-width: 500px;
     padding: 20px;
     box-sizing: border-box;
+
+    @media (max-width: 768px) {
+        max-width: 80%;
+    }
+
+    @media (max-width: 480px) {
+        max-width: 90%;
+        padding: 10px;
+    }
 `;

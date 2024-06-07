@@ -1,9 +1,10 @@
 /* Main */
 
 .main-btn-bundle {
-  position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .upload-btn,
@@ -17,6 +18,7 @@
   cursor: pointer;
   font-size: 25px;
   font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .upload-btn:hover,
@@ -24,4 +26,22 @@
 .lookbook-btn:hover,
 .lookbook-btn:focus {
   background-color: rgb(215, 110, 10);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .upload-btn,
+  .lookbook-btn {
+    padding: 15px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-btn,
+  .lookbook-btn {
+    padding: 10px;
+    font-size: 18px;
+    margin: 5px;
+  }
 }

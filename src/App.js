@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css'; //toast
 
 function App() {
   return (
+    <>
     <Layout>
       <Routes>
         <Route path="/" element={<LoginPage />} />
@@ -24,8 +25,9 @@ function App() {
         <Route path="/lookbook" 
         element={<ProtectedRoute><Lookbook /></ProtectedRoute>} />
       </Routes>
-      <ToastContainer /> 
     </Layout>
+    <ToastContainer /> 
+    </>
   );
 }
 

@@ -32,10 +32,11 @@ export default function ImageUpload() {
       fileReader?.readAsDataURL(file);
       fileReader.onloadend = (e) => {
         const { result } = e?.currentTarget;
-        setImage(result);
+        setPreImage(result);
+        setCropModal(true);
       };
     } else {
-      setImage(image);
+      setPreImage(preImage);
     }
   };
 

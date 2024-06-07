@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiImage } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
+import { toast } from "react-toastify";
 import "./ImageUpload.css";
 import Category from "../Category/Category";
 
@@ -53,6 +54,14 @@ export default function ImageUpload() {
   // 이미지를 업로드하기 위한 함수
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (!temperature) {
+      toast.error("온도를 입력하세요.");
+      return;
+    }
+    if (!category) {
+      toast.error("카테고리를 선택하세요.");
+      return;
+    }
     setIsSubmit(true);
     const storage = getStorage();
     const filePath = `root/${category}/${uuidv4()}`; // 이미지가 저장되는 경로
@@ -67,12 +76,18 @@ export default function ImageUpload() {
       },
     };
 
-    const response = await uploadString(fileRef, image, `data_url`, metadata);
-    console.log(response);
-    setImage(null); // 업로드 후 선택한 파일 제거
-    setCategory(""); // 업로드 후 선택한 카테고리 제거
-    setTemperature(""); // 업로드 후 기온 제거
-    setIsSubmit(false);
+    try {
+      const response = await uploadString(fileRef, image, `data_url`, metadata);
+      console.log(response);
+      setImage(null); // 업로드 후 선택한 파일 제거
+      setCategory(""); // 업로드 후 선택한 카테고리 제거
+      setTemperature(""); // 업로드 후 기온 제거
+      toast.success("업로드 완료!");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsSubmit(false);
+    }
   };
 
   return (
@@ -103,7 +118,7 @@ export default function ImageUpload() {
         <Category category={category} setCategory={setCategory} />
         {image && (
           <div className="image-attachment">
-            <img src={image} alt="attachment" />
+            <img src={image} alt="attachment" width={500} height={500} />
             <input
               type="submit"
               value="업로드"

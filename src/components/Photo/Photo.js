@@ -164,13 +164,13 @@ const Photo = () => {
         {filesUrl.length > 0 ? (
           filesUrl.map((url) => (
             <SwiperSlide key={uuidv4()}>
-              <img src={url.imageUrl} alt="Uploaded" />
               <p>
                 업로드 시간:{" "}
                 {new Date(
                   url.metadata.customMetadata.uploadDate
                 ).toLocaleString()}
               </p>
+              <img src={url.imageUrl} alt="Uploaded" />
             </SwiperSlide>
           ))
         ) : (

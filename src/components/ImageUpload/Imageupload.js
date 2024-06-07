@@ -23,12 +23,16 @@ export default function ImageUpload() {
       target: { files },
     } = e;
     const file = files?.[0];
-    const fileReader = new FileReader();
-    fileReader?.readAsDataURL(file);
-    fileReader.onloadend = (e) => {
-      const { result } = e?.currentTarget;
-      setImage(result);
-    };
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader?.readAsDataURL(file);
+      fileReader.onloadend = (e) => {
+        const { result } = e?.currentTarget;
+        setImage(result);
+      };
+    } else {
+      setImage(image);
+    }
   };
 
   // 메인 버튼 누를 시 메인 페이지로 이동

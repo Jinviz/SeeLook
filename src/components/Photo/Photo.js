@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import {
@@ -19,6 +20,11 @@ const Photo = () => {
   const storage = getStorage(); // Get firebase storage
   const auth = getAuth(app); // firebase 인증 객체 가져오기
   const user = auth.currentUser; // 현재 사용자의 정보 가져오기
+  const navigate = useNavigate();
+
+  const Mainbtn = () => {
+    navigate("/Main");
+  }
 
   const [category, setCategory] = useState("root"); // 기본 카테고리 root
   const [filesUrl, setFilesUrl] = useState([]); // File Url List
@@ -177,6 +183,13 @@ const Photo = () => {
           <></>
         )}
       </Swiper>
+      <div className="category-btn-bundle">
+      <button 
+          className="category-btn"  
+          onClick={Mainbtn}>
+          메인으로 이동하기
+      </button>
+      </div>
     </>
   );
 };

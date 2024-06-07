@@ -12,7 +12,8 @@ const ImageCropModal = ({setCropModal, setImage, preImage}) => {
     const ref = useRef();
 
     const onCropComplete = (croppedArea, croppedAreaPixels) => {
-        setCroppedArea(croppedArea);
+        console.log(croppedArea, croppedAreaPixels)
+        setCroppedArea(croppedAreaPixels);
     }
 
     const onDownload = () => {
@@ -60,7 +61,7 @@ const ImageCropModal = ({setCropModal, setImage, preImage}) => {
                             }}
                             className="zoom-range"
                             />
-                            <button onClick={onDownload}/>
+                            <button onClick={() => {onDownload(); setCropModal(false);}}/>
                         </div>
                     </div>
                 </div>

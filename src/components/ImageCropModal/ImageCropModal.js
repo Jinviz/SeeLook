@@ -40,7 +40,7 @@ const ImageCropModal = ({setCropModal, setImage, preImage}) => {
                             image={preImage}
                             crop={crop}
                             zoom={zoom}
-                            aspect={7 / 10}
+                            aspect={420/600}
                             onCropChange={setCrop}
                             onCropComplete={onCropComplete}
                             onZoomChange={setZoom}
@@ -51,7 +51,7 @@ const ImageCropModal = ({setCropModal, setImage, preImage}) => {
                             <input
                             type="range"
                             value={zoom}
-                            min={1}
+                            min={0.5}
                             max={3}
                             step={0.1}
                             aria-labelledby="Zoom"

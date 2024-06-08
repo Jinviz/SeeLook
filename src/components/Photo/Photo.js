@@ -32,7 +32,7 @@ const Photo = () => {
 
   const [category, setCategory] = useState("root"); // 기본 카테고리 root
   const [filesUrl, setFilesUrl] = useState([]); // File Url List
-  const [modalOpen, setModalOpen] = useState(false); // 팝업 창 상태 기본 값 false
+  const [modalOpen, setModalOpen] = useState(false); // 팝업창 상태 기본 값 false
   const [modalTemperature, setModalTemperature] = useState(""); // 입력한 기온을 저장하기 위한 state
   const [filteredImages, setFilteredImages] = useState([]); // 필터링된 이미지 리스트
 
@@ -41,11 +41,6 @@ const Photo = () => {
   // 팝업 창을 열기 위한 함수
   const openModal = () => {
     setModalOpen(true);
-  };
-
-  // 팝업 창을 닫기 위한 함수
-  const closeModal = () => {
-    setModalOpen(false);
   };
 
   useEffect(() => {

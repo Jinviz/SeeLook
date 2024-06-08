@@ -114,7 +114,6 @@ export default function ImageUpload() {
           placeholder="기온을 입력 해주세요"
           className="temperature-input"
         />
-
         <Category category={category} setCategory={setCategory} />
         {image && (
           <div className="image-attachment">

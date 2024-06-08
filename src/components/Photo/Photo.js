@@ -11,9 +11,12 @@ import {
 import { getAuth } from "firebase/auth";
 import { app } from "../../firebaseApp";
 import { v4 as uuidv4 } from "uuid";
+import Modal from "react-modal";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./Photo.css";
+
+Modal.setAppElement("#root");
 
 const Photo = () => {
   const storage = getStorage(); // Get firebase storage
@@ -22,8 +25,16 @@ const Photo = () => {
 
   const [category, setCategory] = useState("root"); // 기본 카테고리 root
   const [filesUrl, setFilesUrl] = useState([]); // File Url List
+  const [modalOpen, setModalOpen] = useState(false); // 팝업 창 상태 기본 값 false
 
   // (스토리지) => (스토리지 Ref) => listALL -> (res.items) => getDownloadURL -> img src
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   useEffect(() => {
     const fetchImageUrls = async (category) => {
@@ -150,6 +161,23 @@ const Photo = () => {
         >
           스트릿
         </button>
+        <button className="daliy-look-btn" onClick={openModal}>
+          오늘의 의상 추천
+        </button>
+        <Modal
+          isOpen={modalOpen}
+          onRequestClose={closeModal}
+          overlayClassName="customOverlay"
+          className="customModal"
+        >
+          <h1>오늘의 의상 추천</h1>
+          <input
+            type="text"
+            placeholder="오늘의 기온을 입력 해주세요"
+            className="temperature-input"
+          />
+          <button onClick={closeModal}>닫기</button>
+        </Modal>
       </div>
       <Swiper
         slidesPerView={"auto"}

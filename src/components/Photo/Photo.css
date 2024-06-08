@@ -1,4 +1,4 @@
-.swiper {
+.photoSwiper {
   width: 560px;
   height: 800px;
 }
@@ -25,6 +25,8 @@
 .swiper-slide p {
   color: white;
   font-weight: 500;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .category-btn-bundle {
@@ -64,28 +66,4 @@
 .daliy-look-btn:hover,
 .daliy-look-btn:focus {
   background-color: rgb(215, 110, 10);
-}
-
-.customOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000; /* z-index 값을 높게 설정하여 다른 요소 위에 표시되도록 합니다. */
-}
-
-.customModal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  height: 400px;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  background: white;
-  z-index: 1001; /* z-index 값을 높게 설정하여 오버레이 위에 표시되도록 합니다. */
 }

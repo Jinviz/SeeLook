@@ -5,25 +5,25 @@ import "./Main.css";
 export default function Main() {
   const navigate = useNavigate();
 
-  const UploadButton = () => {
-    navigate("/ImageUpload");
+  const LookBookButton = () => {
+    navigate("/lookbook");
   };
 
-  const LookBookButton = () => {
-    navigate("/lookBook");
+  const ClosetButton = () => {
+    navigate("/closet");
   };
 
   return (
     <div className="main">
-      <div className="main-btn-bundle">
+      <div className="main-btn-bundle"> 
         <div className="upload">
-          <button className="upload-btn" onClick={UploadButton}>
-            업로드
+          <button className="upload-btn" onClick={ClosetButton}>
+            옷장
           </button>
         </div>
         <div className="lookbook">
           <button className="lookbook-btn" onClick={LookBookButton}>
-            나의 룩북
+            룩북
           </button>
         </div>
       </div>

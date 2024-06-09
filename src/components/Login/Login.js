@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { app } from "../../firebaseApp";
@@ -9,18 +9,16 @@ export default function Login() {
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); //객체로 원하는 경로 이동하기
+  const navigate = useNavigate();
 
   const onSubmit = async (e) => {
-    e.preventDefault(); //새로고침 방지
+    e.preventDefault();
 
     try {
-      const auth = getAuth(app); //firebase 인증 객체 가져오기
+      const auth = getAuth(app);
       await signInWithEmailAndPassword(auth, email, password);
-      //이메일과 비밀번호를 이용해서 사용자 로그인
-
       toast.success("로그인에 성공했습니다.");
-      navigate("/main"); //Route page로 이동하겠다.
+      navigate("/main");
     } catch (error) {
       toast.error(error?.code);
       console.log(error);
@@ -28,19 +26,14 @@ export default function Login() {
   };
 
   const onChange = (e) => {
-    const {
-      target: { name, value }, //??구문 해석 필요..
-    } = e;
+    const { name, value } = e.target;
 
     if (name === "email") {
       setEmail(value);
 
-      const validRegex =
-        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
       if (!value?.match(validRegex)) {
-        //정규 표현식 패턴과 맞지 않으면
-        // value?. 는 null값으로 인해 발생될 수 있는 오류를 방지하기 위함(옵셔널 체이닝)
         setError("이메일 형식이 올바르지 않습니다.");
       } else {
         setError("");
@@ -59,52 +52,47 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="form form--lg">
-      <h1 className="form__title">로그인</h1>
-      <div className="form__block">
-        <label htmlFor="email">이메일</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          required
-          onChange={onChange}
-          value={email}
-        />
-      </div>
-      <div className="form__block">
-        <label htmlFor="password">비밀번호</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          required
-          onChange={onChange}
-          value={password}
-        />
-      </div>
-      {error && error?.length > 0 && (
-        <div className="form__block">
-          <div className="form__error">{error}</div>
+    <div className="login-box">
+      <h2>Login</h2>
+      <form onSubmit={onSubmit}>
+        <div className="user-box">
+          <input
+            type="email"
+            name="email"
+            required
+            onChange={onChange}
+            value={email}
+          />
+          <label>Username</label>
         </div>
-      )}
-      <div className="form__block">
-        계정이 없으신가요?
-        <Link to="/signup" className="form__link">
-          회원가입하기
-        </Link>
-      </div>
-      <div className="form__block--loginbutton">
-        <input
-          type="submit"
-          value="로그인"
-          className="form__btn--submit"
-          disabled={error?.length > 0}
-        />
-      </div>
-    </form>
+        <div className="user-box">
+          <input
+            type="password"
+            name="password"
+            required
+            onChange={onChange}
+            value={password}
+          />
+          <label>Password</label>
+        </div>
+        {error && error.length > 0 && (
+          <div className="form__error">{error}</div>
+        )}
+        <div className="form__block--loginbutton">
+          <input
+            type="submit"
+            value="로그인"
+            className="form__btn--submit"
+            disabled={error.length > 0}
+          />
+        </div>
+        <div className="form__block">
+          계정이 없으신가요?
+          <Link to="/signup" className="form__link">
+            회원가입하기
+          </Link>
+        </div>
+      </form>
+    </div>
   );
 }
-
-
-//91번째 link to는 페이지 구조에 따라서 경로 수정 예정

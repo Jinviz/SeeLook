@@ -26,7 +26,8 @@
 .lookbook-btn:hover,
 .lookbook-btn:focus {
   background-color: rgb(215, 110, 10);
-  transform: scale(1.05);
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
 }
 
 @media (max-width: 768px) {
@@ -45,3 +46,4 @@
     margin: 5px;
   }
 }
+

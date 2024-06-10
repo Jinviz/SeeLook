@@ -1,11 +1,11 @@
-/* Category */
+/* ClothesCategory */
 
-.category {
+.clothescategory {
   padding: 20px;
   padding-bottom: 20px;
 }
 
-.category select {
+.clothescategory select {
   border: 2px solid rgb(175, 175, 175);
   color: black;
   text-align: center;

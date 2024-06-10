@@ -5,8 +5,12 @@ import "./Main.css";
 export default function Main() {
   const navigate = useNavigate();
 
-  const UploadButton = () => {
-    navigate("/ImageUpload");
+  const StyleUploadButton = () => {
+    navigate("/StyleUpload");
+  };
+
+  const ClothesUploadButton = () => {
+    navigate("/ClothesUpload");
   };
 
   const LookBookButton = () => {
@@ -17,8 +21,13 @@ export default function Main() {
     <div className="main">
       <div className="main-btn-bundle">
         <div className="upload">
-          <button className="upload-btn" onClick={UploadButton}>
-            업로드
+          <button className="upload-btn" onClick={StyleUploadButton}>
+            룩북 업로드
+          </button>
+        </div>
+        <div className="upload">
+          <button className="upload-btn" onClick={ClothesUploadButton}>
+            옷장 업로드
           </button>
         </div>
         <div className="lookbook">

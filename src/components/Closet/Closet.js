@@ -25,7 +25,7 @@ const Closet = () => {
     </div>
     <div className="right-section">
       <button className="btn" onClick={ClosetButton}>
-        <span>My Clozet</span>
+        <span>My Closet</span>
       </button>
     </div>
   </div>

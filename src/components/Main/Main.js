@@ -19,7 +19,7 @@ export default function Main() {
     <div className="main">
       <div className="left-section">
         <button className="btn" onClick={ClosetButton}>
-          <span>Clozet</span>
+          <span>Closet</span>
         </button>
       </div>
       <div className="right-section">

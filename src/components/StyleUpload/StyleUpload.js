@@ -1,20 +1,20 @@
 import { getStorage, ref, uploadString } from "firebase/storage";
 import { getAuth } from "firebase/auth";
-import { app } from "../../firebaseApp";
+import { app } from "../../firebaseApp.js";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiImage } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
 import { toast } from "react-toastify";
-import "./ImageUpload.css";
-import Category from "../Category/Category";
+import "./StyleUpload.css";
+import StyleCategory from "../StyleCategory/StyleCategory.js";
 import ImageCropModal from "../ImageCropModal/ImageCropModal.js";
 import { createPortal } from "react-dom";
 
-export default function ImageUpload() {
+export default function StyleUpload() {
   const [image, setImage] = useState(""); // 이미지를 저장하기 위한 state
   const [isSubmit, setIsSubmit] = useState(Boolean); // 파일을 업로드 하는지 상태를 파악하기 위한 state
-  const [category, setCategory] = useState(""); // 카테고리를 저장하기 위한 state
+  const [styleCategory, setStyleCategory] = useState(""); // 카테고리를 저장하기 위한 state
   const [temperature, setTemperature] = useState(""); // 기온을 저장하기 위한 state
   const navigate = useNavigate(); // 메인 버튼을 누를 시 Router 처리를 위한 navigate
   const auth = getAuth(app); // firebase 인증 객체 가져오기
@@ -65,13 +65,13 @@ export default function ImageUpload() {
       toast.error("온도를 입력하세요.");
       return;
     }
-    if (!category) {
+    if (!styleCategory) {
       toast.error("카테고리를 선택하세요.");
       return;
     }
     setIsSubmit(true);
     const storage = getStorage();
-    const filePath = `root/${category}/${uuidv4()}`; // 이미지가 저장되는 경로
+    const filePath = `root/룩북/${styleCategory}/${uuidv4()}`; // 이미지가 저장되는 경로
     const fileRef = ref(storage, filePath);
 
     // 입력한 온도 및 현재 사용자 정보를 메타데이터로 보내기 위한 선언
@@ -87,7 +87,7 @@ export default function ImageUpload() {
       const response = await uploadString(fileRef, image, `data_url`, metadata);
       console.log(response);
       setImage(null); // 업로드 후 선택한 파일 제거
-      setCategory(""); // 업로드 후 선택한 카테고리 제거
+      setStyleCategory(""); // 업로드 후 선택한 카테고리 제거
       setTemperature(""); // 업로드 후 기온 제거
       toast.success("업로드 완료!");
     } catch (error) {
@@ -123,7 +123,10 @@ export default function ImageUpload() {
             className="temperature-input"
           />
 
-          <Category category={category} setCategory={setCategory} />
+          <StyleCategory
+            styleCategory={styleCategory}
+            setStyleCategory={setStyleCategory}
+          />
 
           {image && (
             <div className="image-attachment">

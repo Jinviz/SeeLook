@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
-import Clothes from '../Clothes/Clothes.js';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import Clothes from "../Clothes/Clothes.js";
+import { useNavigate } from "react-router-dom";
 import "../Main/Main.css";
 
 const Closet = () => {
   const navigate = useNavigate();
 
   const UploadButton = () => {
-    navigate("/ImageUpload");
+    navigate("/ClothesUpload");
   };
 
   const ClosetButton = () => {
     navigate("/clothes");
   };
-  
+
   return (
     <div className="main">
       <div className="main-btn-bundle">
@@ -30,6 +30,6 @@ const Closet = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Closet
+export default Closet;

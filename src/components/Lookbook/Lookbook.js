@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import Stylist from '../Stylist/Stylist.js';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import Stylist from "../Stylist/Stylist.js";
+import { useNavigate } from "react-router-dom";
 import "../Main/Main.css";
 
 const Lookbook = () => {
   const navigate = useNavigate();
 
   const UploadButton = () => {
-    navigate("/ImageUpload");
+    navigate("/StyleUpload");
   };
 
   const LookBookButton = () => {
@@ -30,5 +30,5 @@ const Lookbook = () => {
       </div>
     </div>
   );
-}
-export default Lookbook
+};
+export default Lookbook;

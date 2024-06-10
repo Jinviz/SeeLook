@@ -30,7 +30,7 @@ const Stylist = () => {
     navigate("/Main");
   };
 
-  const [category, setCategory] = useState("root"); // 기본 카테고리 root
+  const [category, setCategory] = useState("root/룩북"); // 기본 카테고리 root
   const [filesUrl, setFilesUrl] = useState([]); // File Url List
   const [modalOpen, setModalOpen] = useState(false); // 팝업창 상태 기본 값 false
   const [modalTemperature, setModalTemperature] = useState(""); // 입력한 기온을 저장하기 위한 state
@@ -87,7 +87,7 @@ const Stylist = () => {
     };
 
     const fetchAllImageUrls = async () => {
-      const rootRef = ref(storage, "root"); // root 폴더 참조 생성
+      const rootRef = ref(storage, "root/룩북"); // root 폴더 참조 생성
       try {
         const allImageUrls = []; // 모든 이미지의 Url을 담을 배열
         const rootFolder = await listAll(rootRef); // root 폴더의 모든 항목 목록 가져오기
@@ -137,7 +137,7 @@ const Stylist = () => {
       }
     };
 
-    if (category === "root") {
+    if (category === "root/룩북") {
       fetchAllImageUrls();
     } else {
       fetchImageUrls(category);
@@ -169,24 +169,27 @@ const Stylist = () => {
   return (
     <>
       <div className="category-btn-bundle">
-        <button className="category-btn" onClick={() => setCategory("root")}>
+        <button
+          className="category-btn"
+          onClick={() => setCategory("root/룩북")}
+        >
           전체
         </button>
         <button
           className="category-btn"
-          onClick={() => setCategory("root/캐주얼")}
+          onClick={() => setCategory("root/룩북/캐주얼")}
         >
           캐주얼
         </button>
         <button
           className="category-btn"
-          onClick={() => setCategory("root/미니멀")}
+          onClick={() => setCategory("root/룩북/미니멀")}
         >
           미니멀
         </button>
         <button
           className="category-btn"
-          onClick={() => setCategory("root/스트릿")}
+          onClick={() => setCategory("root/룩북/스트릿")}
         >
           스트릿
         </button>

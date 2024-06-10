@@ -15,7 +15,7 @@ export default function Main() {
 
   return (
     <div className="main">
-      <div className="main-btn-bundle"> 
+      <div className="main-btn-bundle">
         <div className="upload">
           <button className="upload-btn" onClick={ClosetButton}>
             옷장

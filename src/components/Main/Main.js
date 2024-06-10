@@ -14,19 +14,20 @@ export default function Main() {
   };
 
   return (
+    <div className="button_container">
+      <p class="description">Welcome to Seelook!</p>
     <div className="main">
-      <div className="main-btn-bundle">
-        <div className="upload">
-          <button className="upload-btn" onClick={ClosetButton}>
-            옷장
-          </button>
-        </div>
-        <div className="lookbook">
-          <button className="lookbook-btn" onClick={LookBookButton}>
-            룩북
-          </button>
-        </div>
+      <div className="left-section">
+        <button className="btn" onClick={ClosetButton}>
+          <span>Clozet</span>
+        </button>
       </div>
+      <div className="right-section">
+        <button className="btn" onClick={LookBookButton}>
+          <span>Lookbook</span>
+        </button>
+      </div>
+    </div>
     </div>
   );
 }

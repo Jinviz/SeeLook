@@ -13,14 +13,14 @@ import { getAuth } from "firebase/auth";
 import { app } from "../../firebaseApp";
 import { v4 as uuidv4 } from "uuid";
 import Modal from "react-modal";
-import LookBookModal from "../LookBookModal/LookBookModal";
 import "swiper/css";
 import "swiper/css/pagination";
-import "./Photo.css";
+import "./Clothes.css";
+import LookBookModal from "../LookBookModal/LookBookModal";
 
 Modal.setAppElement("#root");
 
-const Photo = () => {
+const Clothes = () => {
   const storage = getStorage(); // Get firebase storage
   const auth = getAuth(app); // firebase 인증 객체 가져오기
   const user = auth.currentUser; // 현재 사용자의 정보 가져오기
@@ -30,7 +30,7 @@ const Photo = () => {
     navigate("/Main");
   };
 
-  const [category, setCategory] = useState("root"); // 기본 카테고리 root
+  const [category, setCategory] = useState("root/옷장"); // 기본 카테고리 root
   const [filesUrl, setFilesUrl] = useState([]); // File Url List
   const [modalOpen, setModalOpen] = useState(false); // 팝업창 상태 기본 값 false
   const [modalTemperature, setModalTemperature] = useState(""); // 입력한 기온을 저장하기 위한 state
@@ -87,7 +87,7 @@ const Photo = () => {
     };
 
     const fetchAllImageUrls = async () => {
-      const rootRef = ref(storage, "root"); // root 폴더 참조 생성
+      const rootRef = ref(storage, "root/옷장"); // root 폴더 참조 생성
       try {
         const allImageUrls = []; // 모든 이미지의 Url을 담을 배열
         const rootFolder = await listAll(rootRef); // root 폴더의 모든 항목 목록 가져오기
@@ -137,7 +137,7 @@ const Photo = () => {
       }
     };
 
-    if (category === "root") {
+    if (category === "root/옷장") {
       fetchAllImageUrls();
     } else {
       fetchImageUrls(category);
@@ -169,26 +169,35 @@ const Photo = () => {
   return (
     <>
       <div className="category-btn-bundle">
-        <button className="category-btn" onClick={() => setCategory("root")}>
+        <button
+          className="category-btn"
+          onClick={() => setCategory("root/옷장")}
+        >
           전체
         </button>
         <button
           className="category-btn"
-          onClick={() => setCategory("root/캐주얼")}
+          onClick={() => setCategory("root/옷장/상의")}
         >
-          캐주얼
+          상의
         </button>
         <button
           className="category-btn"
-          onClick={() => setCategory("root/미니멀")}
+          onClick={() => setCategory("root/옷장/하의")}
         >
-          미니멀
+          하의
         </button>
         <button
           className="category-btn"
-          onClick={() => setCategory("root/스트릿")}
+          onClick={() => setCategory("root/옷장/아우터")}
         >
-          스트릿
+          아우터
+        </button>
+        <button
+          className="category-btn"
+          onClick={() => setCategory("root/옷장/신발")}
+        >
+          신발
         </button>
         <button className="daliy-look-btn" onClick={openModal}>
           오늘의 의상 추천
@@ -239,4 +248,4 @@ const Photo = () => {
   );
 };
 
-export default Photo;
+export default Clothes;

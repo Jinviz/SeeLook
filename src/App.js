@@ -4,12 +4,15 @@ import Layout from "./components/Layout";
 import LoginPage from "./components/Login/Login";
 import StyleUploadPage from "./pages/StyleUpload";
 import MainPage from "./pages/main";
-import Lookbook from "./pages/lookbook";
 import SignupPage from "./components/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; //toast
 import ClothesUploadPage from "./pages/ClothesUpload";
+import LookbookPage from "./pages/Lookbook";
+import ClosetPage from "./pages/Closet";
+import ClothesPage from "./pages/Clothes";
+import StylistPage from "./pages/Stylist";
 
 function App() {
   return (
@@ -46,7 +49,31 @@ function App() {
             path="/lookbook"
             element={
               <ProtectedRoute>
-                <Lookbook />
+                <LookbookPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/closet"
+            element={
+              <ProtectedRoute>
+                <ClosetPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/clothes"
+            element={
+              <ProtectedRoute>
+                <ClothesPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/stylist"
+            element={
+              <ProtectedRoute>
+                <StylistPage />
               </ProtectedRoute>
             }
           />

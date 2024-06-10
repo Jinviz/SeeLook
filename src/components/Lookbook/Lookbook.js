@@ -1,32 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import Stylist from "../Stylist/Stylist.js";
 import { useNavigate } from "react-router-dom";
-import "./Main.css";
+import "../Main/Main.css";
 
-export default function Main() {
+const Lookbook = () => {
   const navigate = useNavigate();
 
-  const LookBookButton = () => {
-    navigate("/lookbook");
+  const UploadButton = () => {
+    navigate("/StyleUpload");
   };
 
-  const ClosetButton = () => {
-    navigate("/closet");
+  const LookBookButton = () => {
+    navigate("/stylist");
   };
 
   return (
     <div className="main">
       <div className="main-btn-bundle">
         <div className="upload">
-          <button className="upload-btn" onClick={ClosetButton}>
-            옷장
+          <button className="upload-btn" onClick={UploadButton}>
+            업로드
           </button>
         </div>
         <div className="lookbook">
           <button className="lookbook-btn" onClick={LookBookButton}>
-            룩북
+            나의 룩북
           </button>
         </div>
       </div>
     </div>
   );
-}
+};
+export default Lookbook;

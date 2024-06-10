@@ -71,7 +71,7 @@ export default function StyleUpload() {
     }
     setIsSubmit(true);
     const storage = getStorage();
-    const filePath = `root/${styleCategory}/${uuidv4()}`; // 이미지가 저장되는 경로
+    const filePath = `root/룩북/${styleCategory}/${uuidv4()}`; // 이미지가 저장되는 경로
     const fileRef = ref(storage, filePath);
 
     // 입력한 온도 및 현재 사용자 정보를 메타데이터로 보내기 위한 선언

@@ -18,12 +18,12 @@ export default function Main() {
       <p class="description">Welcome to Seelook!</p>
     <div className="main">
       <div className="left-section">
-        <button className="btn" onClick={ClosetButton}>
+        <button className="btn-clozet" onClick={ClosetButton}>
           <span>Clozet</span>
         </button>
       </div>
       <div className="right-section">
-        <button className="btn" onClick={LookBookButton}>
+        <button className="btn-lookbook" onClick={LookBookButton}>
           <span>Lookbook</span>
         </button>
       </div>

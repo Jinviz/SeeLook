@@ -29,15 +29,15 @@
   font-weight: bold;
 }
 
-.category-btn-bundle {
+.category-btn-bundle-clothes {
   margin-left: 30px;
   text-align: center;
 }
 
-.category-btn {
+.category-btn-clothes {
   text-align: center;
   color: white;
-  background-color: rgb(240, 130, 10);
+  background-color: #78c7d2;
   margin: 10px;
   border: none;
   border-radius: 0.5rem;
@@ -46,15 +46,15 @@
   font-weight: 800;
 }
 
-.category-btn:hover,
-.category-btn:focus {
-  background-color: rgb(215, 110, 10);
+.category-btn-clothes:hover,
+.category-btn-clothes:focus {
+  background-color: #78c7d2;
 }
 
-.daliy-look-btn {
+.daliy-look-btn-clothes {
   text-align: center;
   color: white;
-  background-color: rgb(240, 130, 10);
+  background-color: #78c7d2;
   margin: 10px;
   border: none;
   border-radius: 0.5rem;
@@ -63,7 +63,7 @@
   font-weight: 800;
 }
 
-.daliy-look-btn:hover,
-.daliy-look-btn:focus {
-  background-color: rgb(215, 110, 10);
+.daliy-look-btn-clothes:hover,
+.daliy-look-btn-clothes:focus {
+  background-color: #78c7d2;
 }

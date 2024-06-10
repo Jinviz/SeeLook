@@ -15,20 +15,21 @@ const Closet = () => {
   };
   
   return (
-    <div className="main">
-      <div className="main-btn-bundle">
-        <div className="upload">
-          <button className="upload-btn" onClick={UploadButton}>
-            업로드
-          </button>
-        </div>
-        <div className="lookbook">
-          <button className="lookbook-btn" onClick={ClosetButton}>
-            나의 옷장
-          </button>
-        </div>
-      </div>
+    <div className='button_container'>
+       <p class="description">Show off your items by uploading them, or check out your Clozet.</p>
+    <div className="main"> 
+    <div className="left-section">
+      <button className="btn" onClick={UploadButton}>
+        <span>Upload</span>
+      </button>
     </div>
+    <div className="right-section">
+      <button className="btn" onClick={ClosetButton}>
+        <span>My Clozet</span>
+      </button>
+    </div>
+  </div>
+  </div>
   );
 }
 

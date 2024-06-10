@@ -4,10 +4,9 @@
   background-color: rgb(70, 70, 70);
   border-radius: 0.5rem;
   padding: 5px;
-  margin: 5px;
   border: none;
-  max-width: 500px;
-  max-height: 700px;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .image-area {
@@ -42,8 +41,8 @@
 
 .image-attachment {
   padding: 10px;
-  width: 300px;
-  height: 300px;
+  width: 75%;
+  height: 75%;
 }
 
 .image-submit-btn {
@@ -87,4 +86,56 @@
 .image-area__file:hover,
 .image-area__file:focus {
   background-color: rgb(215, 110, 10);
+}
+
+@media (max-width: 768px) {
+  .image-area {
+    max-width: 90%;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .image-area__file {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .temperature-input {
+    height: 25px;
+    padding: 4px;
+    font-size: 14px;
+  }
+
+  .main-btn,
+  .image-submit-btn,
+  .image-clear-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-area {
+    max-width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .image-area__file {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .temperature-input {
+    height: 20px;
+    padding: 3px;
+    font-size: 12px;
+  }
+
+  .main-btn,
+  .image-submit-btn,
+  .image-clear-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
 }

@@ -1,6 +1,6 @@
-.swiper {
-  width: 100%;
-  height: 100%;
+.photoSwiper {
+  width: 560px;
+  height: 800px;
 }
 
 .swiper-slide img {
@@ -15,14 +15,22 @@
 }
 
 .swiper-slide:nth-child(2n) {
-  width: 40%;
+  width: 60%;
 }
 
 .swiper-slide:nth-child(3n) {
-  width: 20%;
+  width: 60%;
+}
+
+.swiper-slide p {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .category-btn-bundle {
+  margin-left: 30px;
   text-align: center;
 }
 
@@ -40,5 +48,22 @@
 
 .category-btn:hover,
 .category-btn:focus {
+  background-color: rgb(215, 110, 10);
+}
+
+.daliy-look-btn {
+  text-align: center;
+  color: white;
+  background-color: rgb(240, 130, 10);
+  margin: 10px;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.daliy-look-btn:hover,
+.daliy-look-btn:focus {
   background-color: rgb(215, 110, 10);
 }

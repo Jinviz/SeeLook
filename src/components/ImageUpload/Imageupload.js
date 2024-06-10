@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiImage } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
+import { toast } from "react-toastify";
 import "./ImageUpload.css";
 import Category from "../Category/Category";
 import ImageCropModal from "../ImageCropModal/ImageCropModal.js";
@@ -19,7 +20,7 @@ export default function ImageUpload() {
   const auth = getAuth(app); // firebase 인증 객체 가져오기
   const user = auth.currentUser; // 현재 사용자의 정보 가져오기
   const [cropModal, setCropModal] = useState(false); // 이미지 크롭 모달창 활성화 state
-  const [preImage, setPreImage] = useState(""); // 크롭 전 이미지  
+  const [preImage, setPreImage] = useState(""); // 크롭 전 이미지
 
   // 파일을 선택 했을 때 읽어오는 함수
   const FileSelect = (e) => {
@@ -38,7 +39,7 @@ export default function ImageUpload() {
     } else {
       setPreImage(preImage);
     }
-    e.target.value = '';
+    e.target.value = "";
   };
 
   // 메인 버튼 누를 시 메인 페이지로 이동
@@ -60,6 +61,14 @@ export default function ImageUpload() {
   // 이미지를 업로드하기 위한 함수
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (!temperature) {
+      toast.error("온도를 입력하세요.");
+      return;
+    }
+    if (!category) {
+      toast.error("카테고리를 선택하세요.");
+      return;
+    }
     setIsSubmit(true);
     const storage = getStorage();
     const filePath = `root/${category}/${uuidv4()}`; // 이미지가 저장되는 경로
@@ -74,12 +83,18 @@ export default function ImageUpload() {
       },
     };
 
-    const response = await uploadString(fileRef, image, `data_url`, metadata);
-    console.log(response);
-    setImage(null); // 업로드 후 선택한 파일 제거
-    setCategory(""); // 업로드 후 선택한 카테고리 제거
-    setTemperature(""); // 업로드 후 기온 제거
-    setIsSubmit(false);
+    try {
+      const response = await uploadString(fileRef, image, `data_url`, metadata);
+      console.log(response);
+      setImage(null); // 업로드 후 선택한 파일 제거
+      setCategory(""); // 업로드 후 선택한 카테고리 제거
+      setTemperature(""); // 업로드 후 기온 제거
+      toast.success("업로드 완료!");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsSubmit(false);
+    }
   };
 
   return (
@@ -109,7 +124,7 @@ export default function ImageUpload() {
           />
 
           <Category category={category} setCategory={setCategory} />
-          
+
           {image && (
             <div className="image-attachment">
               <img src={image} alt="attachment" />
@@ -119,21 +134,27 @@ export default function ImageUpload() {
                 className="image-submit-btn"
                 onClick={onSubmit}
                 disabled={isSubmit}
-                />
+              />
               <button
                 className="image-clear-btn"
                 type="button"
                 onClick={FileDelete}
-                >
+              >
                 삭제
               </button>
             </div>
           )}
         </div>
       </div>
-      {cropModal && 
-      createPortal(<ImageCropModal setCropModal={setCropModal} setImage={setImage} preImage={preImage}/>
-      , document.getElementById('root'))} 
+      {cropModal &&
+        createPortal(
+          <ImageCropModal
+            setCropModal={setCropModal}
+            setImage={setImage}
+            preImage={preImage}
+          />,
+          document.getElementById("root")
+        )}
     </>
   );
 }

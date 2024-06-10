@@ -42,4 +42,16 @@
   .category-btn:focus {
     background-color: rgb(215, 110, 10);
   }
+
+  .daliy-look-btn {
+    text-align: center;
+    color: white;
+    background-color: rgb(215, 110, 10);
+    margin: 10px;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 800;
+  }
   

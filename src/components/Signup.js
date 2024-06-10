@@ -70,57 +70,57 @@ export default function Signup() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="form form--lg">
-      <h1 className="form__title">회원가입</h1>
-      <div className="form__block">
-        <label htmlFor="email">이메일</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          required
-          onChange={onChange}
-        />
-      </div>
-      <div className="form__block">
-        <label htmlFor="password">비밀번호</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          required
-          onChange={onChange}
-        />
-      </div>
-      <div className="form__block">
-        <label htmlFor="password_confirm">비밀번호 확인</label>
-        <input
-          type="password"
-          name="password_confirm"
-          id="password_confirm"
-          required
-          onChange={onChange}
-        />
-      </div>
-      {error && error.length > 0 && (
-        <div className="form__block">
-          <div className="form__error">{error}</div>
+    <div className="login-box">
+      <h2>Signup</h2>
+      <form onSubmit={onSubmit}>
+        <div className="user-box">
+          <input
+            type="email"
+            name="email"
+            required
+            onChange={onChange}
+            value={email}
+          />
+          <label>Email</label>
         </div>
-      )}
-      <div className="form__block">
-        계정이 이미 있으신가요?
-        <Link to="/" className="form__link">
-          로그인하기
-        </Link>
-      </div>
-      <div className="form__block--loginbutton">
-        <input
-          type="submit"
-          value="회원가입"
-          className="form__btn--submit"
-          disabled={error.length > 0}
-        />
-      </div>
-    </form>
+        <div className="user-box">
+          <input
+            type="password"
+            name="password"
+            required
+            onChange={onChange}
+            value={password}
+          />
+          <label>Password</label>
+        </div>
+        <div className="user-box">
+          <input
+            type="password"
+            name="password_confirm"
+            required
+            onChange={onChange}
+            value={passwordConfirm}
+          />
+          <label>Confirm Password</label>
+        </div>
+        {error && error.length > 0 && (
+          <div className="form__error">{error}</div>
+        )}
+        <div className="form__block--loginbutton">
+          <input
+            type="submit"
+            value="회원가입"
+            className="form__btn--submit"
+            disabled={error.length > 0}
+          />
+        </div>
+        <div className="form__block">
+          계정이 이미 있으신가요?
+          <Link to="/" className="form__link">
+            로그인하기
+          </Link>
+        </div>
+      </form>
+    </div>
   );
 }

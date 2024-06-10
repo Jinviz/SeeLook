@@ -4,13 +4,12 @@ import Layout from "./components/Layout";
 import LoginPage from "./components/Login/Login";
 import ImageUploadPage from "./pages/imageupload";
 import MainPage from "./pages/main";
-import Lookbook from "./components/Main/Lookbook/Lookbook";
 import SignupPage from "./components/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; //toast
-import ClosetPage from "./components/Main/Closet/Closet";
-import LookbookPage from "./components/Main/Lookbook/Lookbook";
+import Closet from "./components/Closet/Closet";
+import Lookbook from "./components/Lookbook/Lookbook";
 
 
 function App() {
@@ -25,9 +24,9 @@ function App() {
         <Route path="/Main" 
         element={<ProtectedRoute><MainPage /></ProtectedRoute>} />
         <Route path="/lookbook" 
-        element={<ProtectedRoute><LookbookPage /></ProtectedRoute>} />
+        element={<ProtectedRoute><Lookbook /></ProtectedRoute>} />
         <Route path="/closet" 
-        element={<ProtectedRoute><ClosetPage /></ProtectedRoute>} />
+        element={<ProtectedRoute><Closet /></ProtectedRoute>} />
       </Routes>
     </Layout>
     <ToastContainer /> 

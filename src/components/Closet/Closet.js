@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import Photo from '../../Photo/Photo'
+import Clothes from '../Clothes/Clothes.js';
 import { useNavigate } from 'react-router-dom';
-import "../Main.css";
+import "../Main/Main.css";
 
-const ClosetPage = () => {
+const Closet = () => {
   const navigate = useNavigate();
 
   const UploadButton = () => {
@@ -32,4 +32,4 @@ const ClosetPage = () => {
   );
 }
 
-export default ClosetPage
+export default Closet

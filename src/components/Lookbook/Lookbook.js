@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import Photo from '../../Photo/Photo'
+import Stylist from '../Stylist/Stylist.js';
 import { useNavigate } from 'react-router-dom';
-import "../Main.css";
+import "../Main/Main.css";
 
-const LookbookPage = () => {
+const Lookbook = () => {
   const navigate = useNavigate();
 
   const UploadButton = () => {
@@ -31,4 +31,4 @@ const LookbookPage = () => {
     </div>
   );
 }
-export default LookbookPage
+export default Lookbook

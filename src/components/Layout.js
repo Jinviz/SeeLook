@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
   return (
     <ImageContainer>
       <img
-        src="assets/background/background_layout_type_a.jpg"
+        src="assets/background/background_a.jpg"
         alt="background"
       />
       <TitleContainer>SeeLook</TitleContainer>

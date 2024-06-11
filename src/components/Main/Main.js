@@ -18,8 +18,8 @@ export default function Main() {
       <p class="description">Welcome to Seelook!</p>
     <div className="main">
       <div className="left-section">
-        <button className="btn-clozet" onClick={ClosetButton}>
-          <span>Clozet</span>
+        <button className="btn" onClick={ClosetButton}>
+          <span>Closet</span>
         </button>
       </div>
       <div className="right-section">

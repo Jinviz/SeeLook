@@ -16,16 +16,16 @@ const Closet = () => {
 
   return (
     <div className='button_container'>
-       <p class="description">Show off your items by uploading them, or check out your Clozet.</p>
+       <p class="description">Show off your items by uploading them, or check out your Closet.</p>
     <div className="main"> 
     <div className="left-section">
-      <button className="btn-clozet" onClick={UploadButton}>
+      <button className="btn-closet" onClick={UploadButton}>
         <span>Upload</span>
       </button>
     </div>
     <div className="right-section">
-      <button className="btn-clozet" onClick={ClosetButton}>
-        <span>My Clozet</span>
+      <button className="btn" onClick={ClosetButton}>
+        <span>My Closet</span>
       </button>
     </div>
   </div>

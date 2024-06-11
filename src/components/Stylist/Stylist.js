@@ -146,24 +146,21 @@ const Stylist = () => {
 
   // 입력한 기온 값에 따라 필터링 하는 함수
   const handleTemperatureInput = (e) => {
-    // 엔터키를 누를 때 실행
-    if (e.key === "Enter") {
-      const temperature = parseFloat(modalTemperature); // 입력한 온도의 소수점 제거 후 할당
-      const tolerance = 2; // 오차 범위
+    const temperature = parseFloat(modalTemperature); // 입력한 온도의 소수점 제거 후 할당
+    const tolerance = 2; // 오차 범위
 
-      // 입력한 온도와 오차 범위를 계산해서 필터를 씌우는 함수
-      const filtered = filesUrl.filter((image) => {
-        const imageTemperature = parseFloat(
-          image.metadata.customMetadata.temperature
-        );
-        return (
-          imageTemperature >= temperature - tolerance &&
-          imageTemperature <= temperature + tolerance // 허용된 범위 내에 있으면 true를 반환
-        );
-      });
+    // 입력한 온도와 오차 범위를 계산해서 필터를 씌우는 함수
+    const filtered = filesUrl.filter((image) => {
+      const imageTemperature = parseFloat(
+        image.metadata.customMetadata.temperature
+      );
+      return (
+        imageTemperature >= temperature - tolerance &&
+        imageTemperature <= temperature + tolerance // 허용된 범위 내에 있으면 true를 반환
+      );
+    });
 
-      setFilteredImages(filtered); // 필터링된 이미지를 리스트에 넣기
-    }
+    setFilteredImages(filtered); // 필터링된 이미지를 리스트에 넣기
   };
 
   return (
@@ -205,7 +202,7 @@ const Stylist = () => {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="photoSwiper"
+        className="stylistswiper"
       >
         {filesUrl.length > 0 ? (
           filesUrl.map((url) => (

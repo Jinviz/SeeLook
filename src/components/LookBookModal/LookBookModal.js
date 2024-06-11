@@ -38,10 +38,15 @@ export default function LookBookModal({
         type="text"
         value={modalTemperature}
         onChange={MTemperatureInput}
-        onKeyDown={handleTemperatureInput} // 엔터키 이벤트 추가
         placeholder="오늘의 기온을 입력 해주세요"
         className="modaltemperature-input"
       />
+      <button
+        onClick={handleTemperatureInput}
+        className="temperature-submit-button"
+      >
+        확인
+      </button>
       <Swiper
         slidesPerView={"auto"}
         centeredSlides={true}
@@ -52,20 +57,22 @@ export default function LookBookModal({
         modules={[Pagination]}
         className="lookbook-modal-Swiper"
       >
-        {filteredImages.length > 0 && (
-          <div className="modal-images">
-            {filteredImages.map((url) => (
-              <SwiperSlide key={uuidv4()}>
-                <p>
-                  업로드 시간:{" "}
-                  {new Date(
-                    url.metadata.customMetadata.uploadDate
-                  ).toLocaleString()}
-                </p>
-                <img src={url.imageUrl} alt="Filtered" />
-              </SwiperSlide>
-            ))}
-          </div>
+        {filteredImages.length > 0 ? (
+          filteredImages.map((url) => (
+            <SwiperSlide key={uuidv4()}>
+              <p>
+                업로드 시간:{" "}
+                {new Date(
+                  url.metadata.customMetadata.uploadDate
+                ).toLocaleString()}
+              </p>
+              <img src={url.imageUrl} alt="Filtered" />
+            </SwiperSlide>
+          ))
+        ) : (
+          <SwiperSlide>
+            <p>이미지가 없습니다</p>
+          </SwiperSlide>
         )}
       </Swiper>
     </Modal>

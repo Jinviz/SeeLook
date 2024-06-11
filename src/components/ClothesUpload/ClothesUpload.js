@@ -99,13 +99,13 @@ export default function StyleUpload() {
 
   return (
     <>
-      <div className="image">
-        <button className="main-btn" type="button" onClick={MainBtn}>
-          메인
+      <div className="image-clothes">
+        <button className="main-btn-clothes" type="button" onClick={MainBtn}>
+          메인으로 이동하기
         </button>
-        <div className="image-area">
-          <label htmlFor="file-input" className="image-area__file">
-            <FiImage size="30" className="file-icon" />
+        <div className="image-area-clothes">
+          <label htmlFor="file-input" className="image-area__file-clothes">
+            <FiImage size="30" className="file-icon-clothes" />
           </label>
           <input
             type="file"
@@ -129,17 +129,17 @@ export default function StyleUpload() {
           />
 
           {image && (
-            <div className="image-attachment">
+            <div className="image-attachment-clothes">
               <img src={image} alt="attachment" />
               <input
                 type="submit"
                 value="업로드"
-                className="image-submit-btn"
+                className="image-submit-btn-clothes"
                 onClick={onSubmit}
                 disabled={isSubmit}
               />
               <button
-                className="image-clear-btn"
+                className="image-clear-btn-clothes"
                 type="button"
                 onClick={FileDelete}
               >

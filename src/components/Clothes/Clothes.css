@@ -35,20 +35,29 @@
 }
 
 .category-btn-clothes {
-  text-align: center;
   color: white;
-  background-color: #78c7d2;
+  background-color: rgb(22,9,240);
+  background: linear-gradient(0deg, rgba(22,9,240,1) 0%, rgba(49,110,244,1) 100%);
   margin: 10px;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
   font-size: 15px;
   font-weight: 800;
+  transition: background-color 0.3s, transform 0.2s;
+  padding:10px;
 }
 
 .category-btn-clothes:hover,
 .category-btn-clothes:focus {
-  background-color: #69b0b9;
+  color: #fff;
+  border: none;
+  background: transparent;
+
+  background: rgb(0,3,255);
+background: linear-gradient(0deg, rgba(2,126,251,1) 0%,  rgba(0,3,255,1)100%);
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
 .daliy-look-btn-clothes {

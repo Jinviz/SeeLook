@@ -15,4 +15,10 @@
   border-radius: 0.5rem;
   font-size: 13px;
   font-weight: 700;
+  text-align-last: center;
+}
+
+
+.stylecategory select option {
+  text-align: left;
 }

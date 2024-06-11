@@ -194,8 +194,8 @@ const Clothes = () => {
         )}
       </Swiper>
       <div className="category-btn-bundle-clothes">
-        <button className="category-btn-clothes" onClick={Mainbtn}>
-          메인으로 이동하기
+        <button className="custom-btn btn-10" onClick={Mainbtn}>
+          Main
         </button>
       </div>
     </>

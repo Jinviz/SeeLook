@@ -21,7 +21,7 @@ export default function ClothesCategory({
         onChange={handleItemSelect}
         value={clothesCategory}
       >
-        <option value="">카테고리를 선택해주세요</option>
+        <option value="">카테고리를 선택해주세요.</option>
         {CATEGORIES?.map((clothesCategory) => (
           <option value={clothesCategory} key={clothesCategory}>
             {clothesCategory}

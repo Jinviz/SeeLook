@@ -34,21 +34,19 @@ export default function LookBookModal({
       className="lookbook-modal"
     >
       <p>오늘의 의상 추천</p>
-      <div className="input-button-cotainer">
-        <input
-          type="text"
-          value={modalTemperature}
-          onChange={MTemperatureInput}
-          placeholder="오늘의 기온을 입력 해주세요"
-          className="modaltemperature-input"
-        />
-        <button
-          onClick={handleTemperatureInput}
-          className="temperature-submit-button"
-        >
-          확인
-        </button>
-      </div>
+      <input
+        type="text"
+        value={modalTemperature}
+        onChange={MTemperatureInput}
+        placeholder="오늘의 기온을 입력 해주세요"
+        className="modaltemperature-input"
+      />
+      <button
+        onClick={handleTemperatureInput}
+        className="temperature-submit-button"
+      >
+        확인
+      </button>
       <Swiper
         slidesPerView={"auto"}
         centeredSlides={true}

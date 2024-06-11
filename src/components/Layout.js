@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useInterval } from "../hooks/useInterval";
 
 const Layout = ({ children }) => {
+  const [sequence, setSequence] = useState(1);
+  let number = useInterval(sequence, 3000);
+  setSequence(number);
+  
+
   return (
     <ImageContainer>
       <img

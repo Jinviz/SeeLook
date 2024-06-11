@@ -43,7 +43,7 @@
   background: rgba(0, 0, 0, 0.6);
 }
 
-.btn-clozet {
+.btn-closet {
   border: none;
   display: block;
   text-align: center;
@@ -62,13 +62,13 @@
   white-space: nowrap;
 }
 
-.btn-clozet span {
+.btn-closet span {
   position: relative; 
   z-index: 1;
 }
 
 
-.btn-clozet:after {
+.btn-closet:after {
   content: "";
   position: absolute;
   left: 0;
@@ -83,7 +83,7 @@
 }
 
 
-.btn-clozet:hover:after {
+.btn-closet:hover:after {
   -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
   transform: translateX(-9%) translateY(-25%) rotate(45deg);
 }
@@ -144,7 +144,7 @@
 }
 
 @media (max-width: 1024px) {
-  .btn-clozet {
+  .btn-closet {
     font-size: 18px;
     padding: 18px 70px;
   }
@@ -168,7 +168,7 @@
 }
 
 @media (max-width: 768px) {
-  .btn-clozet {
+  .btn-closet {
     font-size: 16px;
     padding: 16px 60px;
   }
@@ -192,7 +192,7 @@
 }
 
 @media (max-width: 480px) {
-  .btn-clozet {
+  .btn-closet {
     font-size: 14px;
     padding: 14px 50px;
   }

@@ -18,7 +18,7 @@ export default function Main() {
       <p class="description">Welcome to Seelook!</p>
     <div className="main">
       <div className="left-section">
-        <button className="btn" onClick={ClosetButton}>
+        <button className="btn-closet" onClick={ClosetButton}>
           <span>Closet</span>
         </button>
       </div>

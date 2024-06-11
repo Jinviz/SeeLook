@@ -1,4 +1,4 @@
-.photoSwiper {
+.clohtesswiper {
   width: 560px;
   height: 800px;
 }
@@ -48,7 +48,7 @@
 
 .category-btn-clothes:hover,
 .category-btn-clothes:focus {
-  background-color: #78c7d2;
+  background-color: #69b0b9;
 }
 
 .daliy-look-btn-clothes {
@@ -61,9 +61,4 @@
   cursor: pointer;
   font-size: 15px;
   font-weight: 800;
-}
-
-.daliy-look-btn-clothes:hover,
-.daliy-look-btn-clothes:focus {
-  background-color: #78c7d2;
 }

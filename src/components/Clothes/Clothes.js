@@ -12,13 +12,9 @@ import {
 import { getAuth } from "firebase/auth";
 import { app } from "../../firebaseApp";
 import { v4 as uuidv4 } from "uuid";
-import Modal from "react-modal";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./Clothes.css";
-import LookBookModal from "../LookBookModal/LookBookModal";
-
-Modal.setAppElement("#root");
 
 const Clothes = () => {
   const storage = getStorage(); // Get firebase storage
@@ -32,16 +28,9 @@ const Clothes = () => {
 
   const [category, setCategory] = useState("root/옷장"); // 기본 카테고리 root
   const [filesUrl, setFilesUrl] = useState([]); // File Url List
-  const [modalOpen, setModalOpen] = useState(false); // 팝업창 상태 기본 값 false
-  const [modalTemperature, setModalTemperature] = useState(""); // 입력한 기온을 저장하기 위한 state
   const [filteredImages, setFilteredImages] = useState([]); // 필터링된 이미지 리스트
 
   // (스토리지) => (스토리지 Ref) => listALL -> (res.items) => getDownloadURL -> img src
-
-  // 팝업 창을 열기 위한 함수
-  const openModal = () => {
-    setModalOpen(true);
-  };
 
   useEffect(() => {
     const fetchImageUrls = async (category) => {
@@ -144,28 +133,6 @@ const Clothes = () => {
     }
   }, [category]);
 
-  // 입력한 기온 값에 따라 필터링 하는 함수
-  const handleTemperatureInput = (e) => {
-    // 엔터키를 누를 때 실행
-    if (e.key === "Enter") {
-      const temperature = parseFloat(modalTemperature); // 입력한 온도의 소수점 제거 후 할당
-      const tolerance = 2; // 오차 범위
-
-      // 입력한 온도와 오차 범위를 계산해서 필터를 씌우는 함수
-      const filtered = filesUrl.filter((image) => {
-        const imageTemperature = parseFloat(
-          image.metadata.customMetadata.temperature
-        );
-        return (
-          imageTemperature >= temperature - tolerance &&
-          imageTemperature <= temperature + tolerance // 허용된 범위 내에 있으면 true를 반환
-        );
-      });
-
-      setFilteredImages(filtered); // 필터링된 이미지를 리스트에 넣기
-    }
-  };
-
   return (
     <>
       <div className="category-btn-bundle-clothes">
@@ -199,9 +166,6 @@ const Clothes = () => {
         >
           신발
         </button>
-        <button className="daliy-look-btn-clothes" onClick={openModal}>
-          오늘의 의상 추천
-        </button>
       </div>
       <Swiper
         slidesPerView={"auto"}
@@ -211,7 +175,7 @@ const Clothes = () => {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="photoSwiper"
+        className="clohtesswiper"
       >
         {filesUrl.length > 0 ? (
           filesUrl.map((url) => (
@@ -234,16 +198,6 @@ const Clothes = () => {
           메인으로 이동하기
         </button>
       </div>
-
-      <LookBookModal
-        modalOpen={modalOpen}
-        setModalOpen={setModalOpen}
-        modalTemperature={modalTemperature}
-        setModalTemperature={setModalTemperature}
-        handleTemperatureInput={handleTemperatureInput}
-        filteredImages={filteredImages}
-        setFilteredImages={setFilteredImages}
-      />
     </>
   );
 };

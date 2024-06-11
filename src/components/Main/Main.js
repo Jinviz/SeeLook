@@ -23,7 +23,7 @@ export default function Main() {
         </button>
       </div>
       <div className="right-section">
-        <button className="btn" onClick={LookBookButton}>
+        <button className="btn-lookbook" onClick={LookBookButton}>
           <span>Lookbook</span>
         </button>
       </div>

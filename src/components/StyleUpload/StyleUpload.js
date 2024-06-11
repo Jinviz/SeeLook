@@ -101,7 +101,7 @@ export default function StyleUpload() {
     <>
       <div className="image">
         <button className="main-btn" type="button" onClick={MainBtn}>
-          메인
+          메인으로 이동하기 
         </button>
         <div className="image-area">
           <label htmlFor="file-input" className="image-area__file">

@@ -19,7 +19,7 @@ const Closet = () => {
        <p class="description">Show off your items by uploading them, or check out your Clozet.</p>
     <div className="main"> 
     <div className="left-section">
-      <button className="btn" onClick={UploadButton}>
+      <button className="btn-clozet" onClick={UploadButton}>
         <span>Upload</span>
       </button>
     </div>

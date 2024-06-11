@@ -168,38 +168,38 @@ const Clothes = () => {
 
   return (
     <>
-      <div className="category-btn-bundle">
+      <div className="category-btn-bundle-clothes">
         <button
-          className="category-btn"
+          className="category-btn-clothes"
           onClick={() => setCategory("root/옷장")}
         >
           전체
         </button>
         <button
-          className="category-btn"
+          className="category-btn-clothes"
           onClick={() => setCategory("root/옷장/상의")}
         >
           상의
         </button>
         <button
-          className="category-btn"
+          className="category-btn-clothes"
           onClick={() => setCategory("root/옷장/하의")}
         >
           하의
         </button>
         <button
-          className="category-btn"
+          className="category-btn-clothes"
           onClick={() => setCategory("root/옷장/아우터")}
         >
           아우터
         </button>
         <button
-          className="category-btn"
+          className="category-btn-clothes"
           onClick={() => setCategory("root/옷장/신발")}
         >
           신발
         </button>
-        <button className="daliy-look-btn" onClick={openModal}>
+        <button className="daliy-look-btn-clothes" onClick={openModal}>
           오늘의 의상 추천
         </button>
       </div>
@@ -229,8 +229,8 @@ const Clothes = () => {
           <></>
         )}
       </Swiper>
-      <div className="category-btn-bundle">
-        <button className="category-btn" onClick={Mainbtn}>
+      <div className="category-btn-bundle-clothes">
+        <button className="category-btn-clothes" onClick={Mainbtn}>
           메인으로 이동하기
         </button>
       </div>

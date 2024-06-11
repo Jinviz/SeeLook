@@ -1,12 +1,18 @@
-/* StyleUpload */
+/* ClothesUpload */
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 
 .image {
-  background-color: rgb(70, 70, 70);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
   border-radius: 0.5rem;
   padding: 5px;
   border: none;
   max-width: 100%;
   max-height: 100%;
+  box-sizing: border-box;
 }
 
 .image-area {
@@ -32,11 +38,15 @@
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
-  background-color: rgb(240, 130, 10);
+  background-color: #cb9427;
   border-radius: 5px;
   border: none;
   color: white;
   margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .image-attachment {
@@ -62,19 +72,35 @@
   border-radius: 0.5rem;
   font-size: 12px;
   font-weight: 700;
+  margin-bottom: 16px;
 }
+
+.clothes-category {
+  border: 2px solid rgb(175, 175, 175);
+  color: black;
+  text-align: center;
+  height: 40px;
+  padding: 5px 0px;
+  border-radius: 0.5rem;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  width: 75%;
+}
+
 
 .main-btn,
 .image-submit-btn,
 .image-clear-btn {
   color: white;
-  background-color: rgb(240, 130, 10);
+  background-color: #cb9427;
   margin: 10px;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
   font-size: 15px;
   font-weight: 800;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .main-btn:hover,
@@ -85,57 +111,40 @@
 .image-clear-btn:focus,
 .image-area__file:hover,
 .image-area__file:focus {
-  background-color: rgb(215, 110, 10);
+  background-color: #a86800;
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
 }
 
 @media (max-width: 768px) {
-  .image-area {
-    max-width: 90%;
-    padding: 15px;
-    margin-bottom: 15px;
-  }
-
-  .image-area__file {
-    padding: 8px;
-    font-size: 14px;
-  }
-
-  .temperature-input {
-    height: 25px;
-    padding: 4px;
-    font-size: 14px;
-  }
-
+  .image-area__file,
   .main-btn,
   .image-submit-btn,
   .image-clear-btn {
     padding: 10px 15px;
     font-size: 14px;
   }
+
+  .temperature-input,
+  .clothes-category {
+    font-size: 14px;
+    padding: 5px;
+  }
 }
 
 @media (max-width: 480px) {
-  .image-area {
-    max-width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-
-  .image-area__file {
-    padding: 6px;
-    font-size: 12px;
-  }
-
-  .temperature-input {
-    height: 20px;
-    padding: 3px;
-    font-size: 12px;
-  }
-
+  .image-area__file,
   .main-btn,
   .image-submit-btn,
   .image-clear-btn {
-    padding: 8px 12px;
+    padding: 8px 10px;
     font-size: 12px;
+    margin: 5px;
+  }
+
+  .temperature-input,
+  .clothes-category {
+    font-size: 12px;
+    padding: 3px;
   }
 }

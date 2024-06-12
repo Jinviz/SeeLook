@@ -49,7 +49,8 @@
 .lookbook-modal button {
   text-align: center;
   color: white;
-  background-color: rgb(240, 130, 10);
+  background-color: rgb(240, 117, 9);
+  background: linear-gradient(0deg, rgb(240, 97, 9) 0%, rgb(235, 163, 7) 100%);
   margin: 5px;
   border: none;
   border-radius: 0.5rem;
@@ -59,12 +60,14 @@
 }
 
 .lookbook-modal button:hover {
-  background-color: rgb(215, 110, 10);
+  background: rgb(204, 120, 2);
+  background: linear-gradient(0deg, rgb(220, 205, 5) 0%, rgb(248, 208, 5) 100%);
 }
 
 .lookbook-modal p {
   color: white;
-  background-color: rgb(240, 130, 10);
+  background-color: rgb(240, 117, 9);
+  background: linear-gradient(0deg, rgb(240, 97, 9) 0%, rgb(235, 163, 7) 100%);
   padding: 5px;
   display: inline-block;
   margin: 5px;
@@ -72,4 +75,76 @@
   border-radius: 0.5rem;
   font-size: 15px;
   font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  .lookbook-modal {
+    width: 90%;
+    height: 80%;
+    padding: 15px;
+  }
+
+  .lookbook-modal-Swiper {
+    width: 100%;
+    height: 80%;
+  }
+
+  .lookbook-modal button,
+  .lookbook-modal p {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .modaltemperature-input {
+    font-size: 11px;
+    padding: 4px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lookbook-modal {
+    width: 95%;
+    height: 75%;
+    padding: 10px;
+  }
+
+  .lookbook-modal-Swiper {
+    width: 100%;
+    height: 75%;
+  }
+
+  .lookbook-modal button,
+  .lookbook-modal p {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .modaltemperature-input {
+    font-size: 10px;
+    padding: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lookbook-modal {
+    width: 100%;
+    height: 70%;
+    padding: 5px;
+  }
+
+  .lookbook-modal-Swiper {
+    width: 100%;
+    height: 70%;
+  }
+
+  .lookbook-modal button,
+  .lookbook-modal p {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .modaltemperature-input {
+    font-size: 9px;
+    padding: 2px;
+  }
 }

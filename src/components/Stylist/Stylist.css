@@ -27,32 +27,98 @@
 }
 
 .category-btn {
-  text-align: center;
   color: white;
-  background-color: rgb(240, 130, 10);
-  margin: 10px;
+  margin: 0px 10px; 
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
   font-size: 15px;
   font-weight: 800;
+  transition: background-color 0.3s, transform 0.2s;
+  padding: 5px;
 }
 
 .daliy-look-btn {
-  text-align: center;
   color: white;
-  background-color: rgb(240, 130, 10);
-  margin: 10px;
+  margin-top:10px;
+  margin-left:15px;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 19px;
   font-weight: 800;
+  transition: background-color 0.3s, transform 0.2s;
+  padding: 5px;
+}
+
+.category-btn {
+  background-color: rgb(240, 117, 9);
+  background: linear-gradient(0deg, rgb(240, 97, 9) 0%, rgb(235, 163, 7) 100%);
+}
+
+.daliy-look-btn {
+  background-color: rgb(218, 50, 8);
+  background: linear-gradient(0deg, rgb(224, 59, 4) 0%, rgb(235, 7, 7) 100%);
 }
 
 .category-btn:hover,
 .category-btn:focus,
 .daliy-look-btn:hover,
 .daliy-look-btn:focus {
-  background-color: rgb(215, 110, 10);
+  color: #fff;
+  background: rgb(204, 120, 2);
+  background: linear-gradient(0deg, rgb(220, 205, 5) 0%, rgb(248, 208, 5) 100%);
+  -webkit-transform: scale(1.1); /* Slightly increase the scale on hover */
+  transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+  .stylistswiper {
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-slide {
+    width: 80%;
+  }
+
+  .category-btn,
+  .daliy-look-btn {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stylistswiper {
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-slide {
+    width: 100%;
+  }
+
+  .category-btn,
+  .daliy-look-btn {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stylistswiper {
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-slide {
+    width: 100%;
+  }
+
+  .category-btn,
+  .daliy-look-btn {
+    font-size: 10px;
+    padding: 5px;
+  }
 }

@@ -191,7 +191,7 @@ const Stylist = () => {
           스트릿
         </button>
         <button className="daliy-look-btn" onClick={openModal}>
-          오늘의 의상 추천
+          오늘의 의상 추천!
         </button>
       </div>
       <Swiper
@@ -221,8 +221,8 @@ const Stylist = () => {
         )}
       </Swiper>
       <div className="category-btn-bundle">
-        <button className="category-btn" onClick={Mainbtn}>
-          메인으로 이동하기
+        <button className="custom-btn btn-10" onClick={Mainbtn}>
+          Main
         </button>
       </div>
 

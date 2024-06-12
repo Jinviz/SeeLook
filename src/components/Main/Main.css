@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  height: 40vh;
 }
 
 .description, .link {
@@ -61,7 +62,7 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.20); 
   white-space: nowrap;
   width: 200px; /* 버튼의 가로 크기 설정 */
-  height: 300px; /* 버튼의 세로 크기 설정 */
+  height: 200px; /* 버튼의 세로 크기 설정 */
 }
 
 .btn-closet span {
@@ -106,7 +107,7 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.20); 
   white-space: nowrap;
   width: 200px; /* 버튼의 가로 크기 설정 */
-  height: 300px; /* 버튼의 세로 크기 설정 */
+  height: 200px; /* 버튼의 세로 크기 설정 */
 }
 
 .btn-lookbook span {
@@ -148,14 +149,14 @@
     font-size: 18px;
     padding: 70px 18px; /* 기존 padding: 18px 70px; 에서 변경 */
     width: 180px; /* 버튼의 가로 크기 설정 */
-    height: 270px; /* 버튼의 세로 크기 설정 */
+    height: 180px; /* 버튼의 세로 크기 설정 */
   }
 
   .btn-lookbook {
     font-size: 18px;
     padding: 70px 18px; /* 기존 padding: 18px 70px; 에서 변경 */
     width: 180px; /* 버튼의 가로 크기 설정 */
-    height: 270px; /* 버튼의 세로 크기 설정 */
+    height: 180px; /* 버튼의 세로 크기 설정 */
   }
 
   .description {
@@ -176,14 +177,14 @@
     font-size: 16px;
     padding: 60px 16px; /* 기존 padding: 16px 60px; 에서 변경 */
     width: 160px; /* 버튼의 가로 크기 설정 */
-    height: 240px; /* 버튼의 세로 크기 설정 */
+    height: 160px; /* 버튼의 세로 크기 설정 */
   }
 
   .btn-lookbook {
     font-size: 16px;
     padding: 60px 16px; /* 기존 padding: 16px 60px; 에서 변경 */
     width: 160px; /* 버튼의 가로 크기 설정 */
-    height: 240px; /* 버튼의 세로 크기 설정 */
+    height: 160px; /* 버튼의 세로 크기 설정 */
   }
 
   .description {
@@ -204,14 +205,14 @@
     font-size: 14px;
     padding: 50px 14px; /* 기존 padding: 14px 50px; 에서 변경 */
     width: 140px; /* 버튼의 가로 크기 설정 */
-    height: 210px; /* 버튼의 세로 크기 설정 */
+    height: 140px; /* 버튼의 세로 크기 설정 */
   }
 
   .btn-lookbook {
     font-size: 14px;
     padding: 50px 14px; /* 기존 padding: 14px 50px; 에서 변경 */
     width: 140px; /* 버튼의 가로 크기 설정 */
-    height: 210px; /* 버튼의 세로 크기 설정 */
+    height: 140px; /* 버튼의 세로 크기 설정 */
   }
 
   .description {

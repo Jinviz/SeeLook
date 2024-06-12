@@ -99,7 +99,7 @@ export default function StyleUpload() {
 
   return (
     <>
-    <div><p class="description">Upload your Closet items!</p></div>
+  <p class="description">Upload your Closet items!</p>
       <div className="image-clothes">
         <div className="custom-btn-wrapper">
           <button className="custom-btn btn-10" type="button" onClick={MainBtn}>

@@ -45,7 +45,7 @@
   font-size: 15px;
   font-weight: 800;
   transition: background-color 0.3s, transform 0.2s;
-  padding:10px;
+  padding: 10px;
 }
 
 .category-btn-clothes:hover,
@@ -53,9 +53,8 @@
   color: #fff;
   border: none;
   background: transparent;
-
   background: rgb(0,3,255);
-background: linear-gradient(0deg, rgba(2,126,251,1) 0%,  rgba(0,3,255,1)100%);
+  background: linear-gradient(0deg, rgba(2,126,251,1) 0%, rgba(0,3,255,1) 100%);
   -webkit-transform: scale(1);
   transform: scale(1);
 }
@@ -70,4 +69,47 @@ background: linear-gradient(0deg, rgba(2,126,251,1) 0%,  rgba(0,3,255,1)100%);
   cursor: pointer;
   font-size: 15px;
   font-weight: 800;
+}
+
+@media (max-width: 1024px) {
+  .clohtesswiper {
+    width: 80%;
+    height: 600px;
+  }
+
+  .category-btn-clothes, 
+  .daliy-look-btn-clothes {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .clohtesswiper {
+    width: 90%;
+    height: 500px;
+  }
+
+  .category-btn-clothes, 
+  .daliy-look-btn-clothes {
+    font-size: 13px;
+    padding: 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clohtesswiper {
+    width: 100%;
+    height: 400px;
+  }
+
+  .category-btn-clothes, 
+  .daliy-look-btn-clothes {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .category-btn-bundle-clothes {
+    margin-left: 0;
+  }
 }

@@ -1,6 +1,8 @@
 .stylistswiper {
   width: 560px;
   height: 800px;
+  overflow:visible;
+  z-index: -1;
 }
 
 .swiper-slide img {

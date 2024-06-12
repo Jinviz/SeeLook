@@ -99,13 +99,16 @@ export default function StyleUpload() {
 
   return (
     <>
+    <div><p class="description">Upload your Closet items!</p></div>
       <div className="image-clothes">
-        <button className="main-btn-clothes" type="button" onClick={MainBtn}>
-          메인으로 이동하기
-        </button>
+        <div className="custom-btn-wrapper">
+          <button className="custom-btn btn-10" type="button" onClick={MainBtn}>
+            ←
+          </button>
+        </div>
         <div className="image-area-clothes">
           <label htmlFor="file-input" className="image-area__file-clothes">
-            <FiImage size="30" className="file-icon-clothes" />
+            <FiImage size="50" className="file-icon" />
           </label>
           <input
             type="file"
@@ -119,7 +122,7 @@ export default function StyleUpload() {
             type="text"
             value={temperature}
             onChange={TemperatureInput}
-            placeholder="기온을 입력 해주세요"
+            placeholder="기온을 입력 해주세요."
             className="temperature-input"
           />
 
@@ -133,7 +136,7 @@ export default function StyleUpload() {
               <img src={image} alt="attachment" />
               <input
                 type="submit"
-                value="업로드"
+                value="Upload"
                 className="image-submit-btn-clothes"
                 onClick={onSubmit}
                 disabled={isSubmit}
@@ -143,7 +146,7 @@ export default function StyleUpload() {
                 type="button"
                 onClick={FileDelete}
               >
-                삭제
+                Delete
               </button>
             </div>
           )}

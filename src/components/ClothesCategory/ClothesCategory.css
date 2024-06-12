@@ -3,11 +3,16 @@
 .clothescategory {
   padding: 20px;
   padding-bottom: 20px;
+background: transparent;
+}
+
+.category-option {
+  background: black;
 }
 
 .clothescategory select {
   border: 2px solid rgb(175, 175, 175);
-  color: black;
+  color: white;
   text-align: center;
   max-width: 680px;
   height: 40px;
@@ -15,4 +20,10 @@
   border-radius: 0.5rem;
   font-size: 13px;
   font-weight: 700;
+  text-align-last: center;
+  background: transparent;
+}
+
+.clothescategory select option {
+  text-align: left;
 }

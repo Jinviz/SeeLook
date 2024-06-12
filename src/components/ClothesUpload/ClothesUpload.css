@@ -13,6 +13,7 @@
   max-width: 100%;
   max-height: 100%;
   box-sizing: border-box;
+  flex-direction: column-reverse;
 }
 
 .image-area-clothes {
@@ -38,15 +39,16 @@
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
-  background-color: #78c7d2;
-  border-radius: 5px;
-  border: none;
+  background: transparent;
+  border: 3px solid white;
   color: white;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
   padding: 10px 20px;
   font-size: 16px;
   font-weight: 600;
   transition: background-color 0.3s, transform 0.2s;
+  border-radius: 12px;
 }
 
 .image-attachment {
@@ -65,7 +67,7 @@
 
 .temperature-input-clothes {
   border: 2px solid rgb(175, 175, 175);
-  color: black;
+  color: white;
   text-align: center;
   height: 20px;
   padding: 5px 0px;
@@ -73,7 +75,10 @@
   font-size: 12px;
   font-weight: 700;
   margin-bottom: 16px;
+  background: transparent;
 }
+
+
 
 .clothes-category {
   border: 2px solid rgb(175, 175, 175);
@@ -91,8 +96,9 @@
 .main-btn-clothes,
 .image-submit-btn-clothes,
 .image-clear-btn-clothes {
-  color: white;
-  background-color: #78c7d2;
+  color: black;
+  background-color:white;
+  background: #212121;
   margin: 10px;
   border: none;
   border-radius: 0.5rem;
@@ -110,10 +116,77 @@
 .image-clear-btn-clothes:focus,
 .image-area__file-clothes:hover,
 .image-area__file-clothes:focus {
-  background-color: #2e85d1;
-  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-  transform: translateY(-0.25em);
+  
+    color: #fff;
+    border: none;
+    background: transparent;
+
+    background:gray;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  
 }
+
+.custom-btn-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.custom-btn {
+  width: 54px;
+  height: 24px;
+  align-items: center;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+  /* padding: 10px 25px; */
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+  margin: 20px 0 30px 20px;
+}
+
+.btn-10 {
+  background:transparent;
+  /* color:black; */
+  border: 1px solid white;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.btn-10:after {
+  position: absolute;
+  content: " ";
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  -webkit-transform: scale(.1);
+  transform: scale(.1);
+}
+.btn-10:hover {
+  color: #fff;
+  border: none;
+  background: transparent;
+}
+.btn-10:hover:after {
+  background:gray;
+background:gray;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
 
 @media (max-width: 768px) {
   .image-area__file-clothes,

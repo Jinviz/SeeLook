@@ -73,6 +73,7 @@
   font-size: 12px;
   font-weight: 700;
   margin-bottom: 16px;
+  background: transparent;
 }
 
 .clothes-category {
@@ -86,6 +87,7 @@
   font-weight: 700;
   margin-bottom: 16px;
   width: 75%;
+  background: transparent;
 }
 
 

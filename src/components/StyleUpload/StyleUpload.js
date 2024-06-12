@@ -158,6 +158,7 @@ export default function StyleUpload() {
             setCropModal={setCropModal}
             setImage={setImage}
             preImage={preImage}
+            ratio={420/600}
           />,
           document.getElementById("root")
         )}

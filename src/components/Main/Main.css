@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 
 .button_container {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .description, .link {
@@ -56,10 +56,12 @@
   font-weight: 700;
   font-size: 20px;
   background-color: #222;
-  padding: 20px 80px;
+  padding: 80px 20px; /* 기존 padding: 20px 80px; 에서 변경 */
   margin: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.20); 
   white-space: nowrap;
+  width: 200px; /* 버튼의 가로 크기 설정 */
+  height: 300px; /* 버튼의 세로 크기 설정 */
 }
 
 .btn-closet span {
@@ -67,25 +69,23 @@
   z-index: 1;
 }
 
-
 .btn-closet:after {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
-  height: 490%;
-  width: 140%;
+  height: 140%;
+  width: 490%; /* 기존 width: 140%; 에서 변경 */
   background: #78c7d2;
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
-  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
-  transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  -webkit-transform: translateX(-25%) translateY(-98%) rotate(45deg); /* 기존 translateX(-98%) translateY(-25%) 에서 변경 */
+  transform: translateX(-25%) translateY(-98%) rotate(45deg); /* 기존 translateX(-98%) translateY(-25%) 에서 변경 */
 }
 
-
 .btn-closet:hover:after {
-  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
-  transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  -webkit-transform: translateX(-25%) translateY(-9%) rotate(45deg); /* 기존 translateX(-9%) translateY(-25%) 에서 변경 */
+  transform: translateX(-25%) translateY(-9%) rotate(45deg); /* 기존 translateX(-9%) translateY(-25%) 에서 변경 */
 }
 
 .btn-lookbook {
@@ -101,10 +101,12 @@
   font-weight: 700;
   font-size: 20px;
   background-color: #222;
-  padding: 20px 80px;
+  padding: 80px 20px; /* 기존 padding: 20px 80px; 에서 변경 */
   margin: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.20); 
   white-space: nowrap;
+  width: 200px; /* 버튼의 가로 크기 설정 */
+  height: 300px; /* 버튼의 세로 크기 설정 */
 }
 
 .btn-lookbook span {
@@ -112,25 +114,23 @@
   z-index: 1;
 }
 
-
 .btn-lookbook:after {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
-  height: 490%;
-  width: 140%;
+  height: 140%;
+  width: 490%; /* 기존 width: 140%; 에서 변경 */
   background: #cb9427;
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
-  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
-  transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  -webkit-transform: translateX(-25%) translateY(-98%) rotate(45deg); /* 기존 translateX(-98%) translateY(-25%) 에서 변경 */
+  transform: translateX(-25%) translateY(-98%) rotate(45deg); /* 기존 translateX(-98%) translateY(-25%) 에서 변경 */
 }
 
-
 .btn-lookbook:hover:after {
-  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
-  transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  -webkit-transform: translateX(-25%) translateY(-9%) rotate(45deg); /* 기존 translateX(-9%) translateY(-25%) 에서 변경 */
+  transform: translateX(-25%) translateY(-9%) rotate(45deg); /* 기존 translateX(-9%) translateY(-25%) 에서 변경 */
 }
 
 .link {
@@ -146,12 +146,16 @@
 @media (max-width: 1024px) {
   .btn-closet {
     font-size: 18px;
-    padding: 18px 70px;
+    padding: 70px 18px; /* 기존 padding: 18px 70px; 에서 변경 */
+    width: 180px; /* 버튼의 가로 크기 설정 */
+    height: 270px; /* 버튼의 세로 크기 설정 */
   }
 
   .btn-lookbook {
     font-size: 18px;
-    padding: 18px 70px;
+    padding: 70px 18px; /* 기존 padding: 18px 70px; 에서 변경 */
+    width: 180px; /* 버튼의 가로 크기 설정 */
+    height: 270px; /* 버튼의 세로 크기 설정 */
   }
 
   .description {
@@ -170,12 +174,16 @@
 @media (max-width: 768px) {
   .btn-closet {
     font-size: 16px;
-    padding: 16px 60px;
+    padding: 60px 16px; /* 기존 padding: 16px 60px; 에서 변경 */
+    width: 160px; /* 버튼의 가로 크기 설정 */
+    height: 240px; /* 버튼의 세로 크기 설정 */
   }
 
   .btn-lookbook {
     font-size: 16px;
-    padding: 16px 60px;
+    padding: 60px 16px; /* 기존 padding: 16px 60px; 에서 변경 */
+    width: 160px; /* 버튼의 가로 크기 설정 */
+    height: 240px; /* 버튼의 세로 크기 설정 */
   }
 
   .description {
@@ -194,12 +202,16 @@
 @media (max-width: 480px) {
   .btn-closet {
     font-size: 14px;
-    padding: 14px 50px;
+    padding: 50px 14px; /* 기존 padding: 14px 50px; 에서 변경 */
+    width: 140px; /* 버튼의 가로 크기 설정 */
+    height: 210px; /* 버튼의 세로 크기 설정 */
   }
 
   .btn-lookbook {
     font-size: 14px;
-    padding: 14px 50px;
+    padding: 50px 14px; /* 기존 padding: 14px 50px; 에서 변경 */
+    width: 140px; /* 버튼의 가로 크기 설정 */
+    height: 210px; /* 버튼의 세로 크기 설정 */
   }
 
   .description {
@@ -225,4 +237,3 @@
     padding: 5px;
   }
 }
-

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import { useInterval } from "../hooks/useInterval";
 
 const Layout = ({ children }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

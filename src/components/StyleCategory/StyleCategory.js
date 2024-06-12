@@ -18,9 +18,9 @@ export default function StyleCategory({ styleCategory, setStyleCategory }) {
         onChange={handleItemSelect}
         value={styleCategory}
       >
-        <option value="">카테고리를 선택해주세요</option>
+        <option className="category-option" value="">카테고리를 선택해주세요</option>
         {CATEGORIES?.map((styleCategory) => (
-          <option value={styleCategory} key={styleCategory}>
+          <option className="category-option" value={styleCategory} key={styleCategory}>
             {styleCategory}
           </option>
         ))}

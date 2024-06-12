@@ -101,9 +101,11 @@ export default function StyleUpload() {
     <>
     <div><p class="description">Upload what you're wearing!</p></div>
       <div className="image-clothes">
-        <button className="custom-btn btn-10" type="button" onClick={MainBtn}>
-          Main
-        </button>
+        <div className="custom-btn-wrapper">
+          <button className="custom-btn btn-10" type="button" onClick={MainBtn}>
+            ←
+          </button>
+        </div>
         <div className="image-area-clothes">
           <label htmlFor="file-input" className="image-area__file-clothes">
             <FiImage size="50" className="file-icon" />

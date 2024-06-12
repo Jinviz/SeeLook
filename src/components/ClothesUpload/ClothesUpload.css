@@ -39,16 +39,16 @@
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
-  background-color: white;
-  background: white;
-  border: none;
-  color: black;
+  background: transparent;
+  border: 3px solid white;
+  color: white;
   margin-top: 20px;
   margin-bottom: 40px;
   padding: 10px 20px;
   font-size: 16px;
   font-weight: 600;
   transition: background-color 0.3s, transform 0.2s;
+  border-radius: 12px;
 }
 
 .image-attachment {
@@ -67,7 +67,7 @@
 
 .temperature-input-clothes {
   border: 2px solid rgb(175, 175, 175);
-  color: black;
+  color: white;
   text-align: center;
   height: 20px;
   padding: 5px 0px;
@@ -75,6 +75,7 @@
   font-size: 12px;
   font-weight: 700;
   margin-bottom: 16px;
+  background: transparent;
 }
 
 
@@ -97,7 +98,7 @@
 .image-clear-btn-clothes {
   color: black;
   background-color:white;
-  background: white;
+  background: #212121;
   margin: 10px;
   border: none;
   border-radius: 0.5rem;
@@ -121,18 +122,25 @@
     background: transparent;
 
     background:gray;
-  background: gray;
     -webkit-transform: scale(1);
     transform: scale(1);
   
 }
 
+.custom-btn-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+}
+
 .custom-btn {
-  width: 130px;
-  height: 40px;
+  width: 54px;
+  height: 24px;
+  align-items: center;
   color: #fff;
   border-radius: 5px;
-  padding: 10px 25px;
+  font-size: 18px;
+  /* padding: 10px 25px; */
   font-family: 'Lato', sans-serif;
   font-weight: 500;
   background: transparent;
@@ -144,18 +152,17 @@
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
   outline: none;
-  margin-bottom:30px;
-  margin-top:20px;
+  margin: 20px 0 30px 20px;
 }
 
 .btn-10 {
-  background:white;
-background: white;
-  color:black;
-  border: none;
+  background:transparent;
+  /* color:black; */
+  border: 1px solid white;
   transition: all 0.3s ease;
   overflow: hidden;
 }
+
 .btn-10:after {
   position: absolute;
   content: " ";

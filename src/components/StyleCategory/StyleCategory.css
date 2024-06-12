@@ -5,9 +5,13 @@
   padding-bottom: 20px;
 }
 
+.category-option {
+  background: black;
+}
+
 .stylecategory select {
   border: 2px solid rgb(175, 175, 175);
-  color: black;
+  color: white;
   text-align: center;
   max-width: 680px;
   height: 40px;
@@ -16,6 +20,7 @@
   font-size: 13px;
   font-weight: 700;
   text-align-last: center;
+  background: transparent;
 }
 
 

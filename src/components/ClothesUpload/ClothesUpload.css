@@ -65,7 +65,7 @@
   margin-top: 10px;
 }
 
-.temperature-input-clothes {
+.temperature-input {
   border: 2px solid rgb(175, 175, 175);
   color: white;
   text-align: center;
@@ -96,11 +96,11 @@
 .main-btn-clothes,
 .image-submit-btn-clothes,
 .image-clear-btn-clothes {
-  color: black;
+  color: white;
   background-color:white;
-  background: #212121;
+  background: transparent;
   margin: 10px;
-  border: none;
+  border: 1px solid white;
   border-radius: 0.5rem;
   cursor: pointer;
   font-size: 15px;

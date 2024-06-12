@@ -1,13 +1,34 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import styled, { keyframes } from "styled-components";
 
 const Layout = ({ children }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const images = [
+    'assets/background/background_a.jpg',
+    'assets/background/background_b.jpg',
+    'assets/background/background_c.jpg'
+  ];
+  
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+
+    return () => clearInterval(intervalId); // Cleanup
+  }, []);
+  
+  
+
   return (
     <ImageContainer>
-      <img
-        src="assets/background/background_a.jpg"
-        alt="background"
-      />
+       {images.map((image, index) => (
+        <BackgroundImage
+          key={index}
+          src={image}
+          alt={`background ${index}`}
+          active={index === currentIndex}
+        />
+      ))}
       <TitleContainer>SeeLook</TitleContainer>
       <ContentContainer>{children}</ContentContainer>
     </ImageContainer>
@@ -15,6 +36,27 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const BackgroundImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; // 이미지가 부모 요소 덮기
+  opacity: ${({ active }) => (active ? 1 : 0)};
+  transition: opacity 1s ease-in-out;
+  animation: ${({ active }) => (active ? fadeIn : '')} 1s ease-in-out;
+`;
 
 const ImageContainer = styled.div`
   position: relative;

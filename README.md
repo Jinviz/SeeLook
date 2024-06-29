@@ -1,50 +1,20 @@
-<table>
-  <tr>
-    <td valign="top"><img src="./image1.gif" alt="RESQ_fig" weight="200"></td>
-    <td valign="top">
-      <h3><ul>
-        <li>The app activates a map based on the user's current location.</li><br><br>
-        <li>It provides various information suitable for the user's current location.</li><br><br>
-        <li>Considering the user's location and surrounding areas, it displays the current weather, place information, and major types of accidents.</li><br><br>
-        <li>Out of a total of 27 types of accident data, it analyzes accident types associated with the user's current location.</li><br><br>
-      </ul><h4>
-    </td>
-  </tr>
-</table>
+## 📱 APP Screenshot
 
-<table>
-  <tr>
-    <td valign="top"><img src="./image2.gif" alt="RESQ_fig"></td>
-    <td valign="top">
-      <h4><ul>
-        <li>The app activates a map based on the user's current location.</li><br><br>
-        <li>It provides various information suitable for the user's current location.</li><br><br>
-        <li>Considering the user's location and surrounding areas, it displays the current weather, place information, and major types of accidents.</li><br><br>
-        <li>Out of a total of 27 types of accident data, it analyzes accident types associated with the user's current location.</li><br><br>
-        <li>It provides the user with the three most likely types of accidents to occur in their current location.</li><br><br>
-        <li>When clicking on the accident type list, it provides a detailed explanation video about that type of accident, along with detailed measures and preparations for it.</li><br><br>
-        <li>On the bottom right of the app screen, there is a phone icon that you can click to call 119 immediately, enabling a quick response in an emergency.</li>
-      </ul><h4>
-    </td>
-  </tr>
-</table>
+### 이미지 1: 로그인 및 회원가입, 메인 페이지
 
-<table>
-  <tr>
-    <td valign="top"><img src="./image3.gif" alt="RESQ_fig"></td>
-    <td valign="top">
-      <h4><ul>
-        <li>The app activates a map based on the user's current location.</li><br><br>
-        <li>It provides various information suitable for the user's current location.</li><br><br>
-        <li>Considering the user's location and surrounding areas, it displays the current weather, place information, and major types of accidents.</li><br><br>
-        <li>Out of a total of 27 types of accident data, it analyzes accident types associated with the user's current location.</li><br><br>
-        <li>It provides the user with the three most likely types of accidents to occur in their current location.</li><br><br>
-        <li>When clicking on the accident type list, it provides a detailed explanation video about that type of accident, along with detailed measures and preparations for it.</li><br><br>
-        <li>On the bottom right of the app screen, there is a phone icon that you can click to call 119 immediately, enabling a quick response in an emergency.</li>
-      </ul><h4>
-    </td>
-  </tr>
-</table>
+![로그인 및 회원가입](image1.gif)
+*로그인을 하면 메인 페이지로 접근 가능합니다.*
 
-   
- 
+---
+
+### 이미지 2: Lookbook 페이지 기능
+
+![Lookbook 페이지](image2.gif)
+*업로드 버튼을 통해 이미지를 카테고리별로 업로드할 수 있으며, 온도를 설정할 수 있습니다. "My Look"에서는 업로드한 이미지를 관리할 수 있고, 카테고리와 온도에 따라 추천 기능이 제공됩니다.*
+
+---
+
+### 이미지 3: 옷장 아이템 관리 페이지
+
+![옷장 아이템 관리](image3.gif)
+*업로드 기능을 통해 아이템을 카테고리별로 추가할 수 있습니다.*

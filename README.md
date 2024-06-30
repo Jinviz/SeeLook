@@ -10,9 +10,12 @@
 
 [SeeLook 바로가기](seelook-6e45e.web.app)
 
-⚠ **주의** 
+#### ⚠ **주의** 
 
 링크를 클릭 했을 때 **Site Not Found**가 나온다면 호스팅을 중단한 상태입니다.
+
+## ⛓️ Service Architecture
+<img src="public/assets/서비스 아키텍처2.svg" alt="서비스 아키텍처">
 
 
 ## 📱 APP Screenshot

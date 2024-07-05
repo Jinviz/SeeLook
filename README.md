@@ -67,7 +67,7 @@ npm run start
 업로드 기능을 통해 아이템을 카테고리별로 추가할 수 있습니다.
 
 ## 🚨 R&R
-* 김진우[FE/팀장]:
+* 김진우[FE/팀장]: ImageCrop, Gallery, Modal, InteractiveUI, Background, 
 * 곽지훈[FE/팀원]: Login, Signup, Louter Guard, CSS Style, UI/UX  
 * 채민기[FE/팀원]: (Style, Clothes)Upload, Category, Stylist, Clothes, LooBookModal, Firebase Storage
 
